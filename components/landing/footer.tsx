@@ -119,7 +119,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-border">
+        <div className="mt-12 pt-8 pb-16 md:pb-0 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
             <p>
               © {currentYear} AAC Glass Films. All rights reserved.
