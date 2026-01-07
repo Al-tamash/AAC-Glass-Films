@@ -1,6 +1,4 @@
-"use client";
-
-import { motion } from "motion/react";
+import { FadeIn } from "@/components/landing/anim-wrapper";
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -60,13 +58,7 @@ export function Services() {
     <section id="services" className="section-spacing">
       <div className="section-container">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-8"
-        >
+        <FadeIn className="text-center max-w-3xl mx-auto mb-8">
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
             Our Services
           </span>
@@ -77,17 +69,15 @@ export function Services() {
             From privacy solutions to decorative enhancements, we offer a complete
             range of glass film and vinyl services for homes and businesses across Telangana.
           </p>
-        </motion.div>
+        </FadeIn>
 
         {/* Services Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {services.map((service, index) => (
-            <motion.div
+            <FadeIn
               key={service.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
+              delay={index * 0.05}
+              duration={0.4}
             >
               <Card className="h-full group hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 overflow-hidden cursor-pointer flex flex-col border-border">
                 <div className="relative w-full h-48 bg-muted">
@@ -113,7 +103,7 @@ export function Services() {
                   </p>
                 </CardContent>
               </Card>
-            </motion.div>
+            </FadeIn>
           ))}
         </div>
       </div>

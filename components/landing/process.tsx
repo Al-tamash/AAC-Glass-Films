@@ -1,6 +1,4 @@
-"use client";
-
-import { motion } from "motion/react";
+import { FadeIn } from "@/components/landing/anim-wrapper";
 import {
   MessageSquare,
   ClipboardCheck,
@@ -52,13 +50,7 @@ export function Process() {
     <section className="section-spacing bg-muted/30">
       <div className="section-container">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-8"
-        >
+        <FadeIn className="text-center max-w-3xl mx-auto mb-8">
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
             Our Work Process
           </span>
@@ -69,7 +61,7 @@ export function Process() {
             Whether it's frosted film for your bathroom, safety film for your office, or decorative 
             tinting for your showroom — our 5-step process ensures a smooth, hassle-free experience.
           </p>
-        </motion.div>
+        </FadeIn>
 
         {/* Process Steps - Horizontal on Desktop, Vertical on Mobile */}
         <div className="relative">
@@ -78,12 +70,10 @@ export function Process() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-4">
             {steps.map((step, index) => (
-              <motion.div
+              <FadeIn
                 key={step.number}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
+                delay={index * 0.1}
+                duration={0.4}
                 className="relative text-center"
               >
                 {/* Step circle with icon */}
@@ -103,7 +93,7 @@ export function Process() {
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   {step.description}
                 </p>
-              </motion.div>
+              </FadeIn>
             ))}
           </div>
         </div>

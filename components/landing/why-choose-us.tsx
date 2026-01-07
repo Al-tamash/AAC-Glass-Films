@@ -1,6 +1,4 @@
-"use client";
-
-import { motion } from "motion/react";
+import { FadeIn, ScaleIn } from "@/components/landing/anim-wrapper";
 import { Check, Star } from "lucide-react";
 
 const benefits = [
@@ -49,12 +47,7 @@ export function WhyChooseUs() {
       <div className="section-container">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <FadeIn direction="right" duration={0.6}>
             <span className="text-primary font-semibold text-sm uppercase tracking-wider">
               Why Choose Us
             </span>
@@ -70,38 +63,28 @@ export function WhyChooseUs() {
             {/* Highlights */}
             <div className="grid grid-cols-2 gap-4">
               {highlights.map((highlight, index) => (
-                <motion.div
+                <ScaleIn
                   key={highlight}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  delay={index * 0.1}
+                  duration={0.3}
                   className="flex items-center gap-2 p-3 rounded-lg bg-primary/10"
                 >
                   <Star className="w-5 h-5 text-secondary flex-shrink-0" />
                   <span className="text-sm font-medium text-foreground">
                     {highlight}
                   </span>
-                </motion.div>
+                </ScaleIn>
               ))}
             </div>
-          </motion.div>
+          </FadeIn>
 
           {/* Right - Benefits List */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-4"
-          >
+          <FadeIn direction="left" duration={0.6} className="space-y-4">
             {benefits.map((benefit, index) => (
-              <motion.div
+              <FadeIn
                 key={benefit.title}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.08 }}
+                delay={index * 0.08}
+                duration={0.3}
                 className="flex gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/30 transition-colors"
               >
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
@@ -115,9 +98,9 @@ export function WhyChooseUs() {
                     {benefit.description}
                   </p>
                 </div>
-              </motion.div>
+              </FadeIn>
             ))}
-          </motion.div>
+          </FadeIn>
         </div>
       </div>
     </section>

@@ -1,9 +1,7 @@
-"use client";
-
+import { FadeIn } from "@/components/landing/anim-wrapper";
 import Link from "next/link";
 import { Phone, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion } from "motion/react";
 
 export function CTA() {
   return (
@@ -19,11 +17,8 @@ export function CTA() {
       </div>
 
       <div className="section-container relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+        <FadeIn
+          duration={0.6}
           className="max-w-3xl mx-auto text-center"
         >
           <h2 className="text-primary-foreground mb-6">
@@ -66,7 +61,7 @@ export function CTA() {
           <p className="mt-6 text-primary-foreground/70 text-sm">
             No obligation. Quick response guaranteed.
           </p>
-        </motion.div>
+        </FadeIn>
       </div>
     </section>
   );
