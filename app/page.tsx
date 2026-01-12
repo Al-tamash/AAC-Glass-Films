@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
 import { Header } from "@/components/landing/header";
 import { Hero } from "@/components/landing/hero";
@@ -148,7 +149,9 @@ export default function Home() {
         <Process />
         <Testimonials />
         <WhyChooseUs />
-        <Gallery />
+        <Suspense fallback={<div className="section-spacing bg-muted/30"><div className="section-container text-center py-12">Loading gallery...</div></div>}>
+          <Gallery />
+        </Suspense>
         <FAQ />
         <CTA />
         <Contact />
