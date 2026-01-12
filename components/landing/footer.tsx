@@ -3,19 +3,19 @@ import Image from "next/image";
 import { Phone, Mail, MapPin } from "lucide-react";
 
 const quickLinks = [
-  { name: "Home", href: "#home" },
-  { name: "Services", href: "#services" },
-  { name: "About Us", href: "#about" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/" },
+  { name: "Services", href: "/services" },
+  { name: "About Us", href: "/about" },
+  { name: "Contact", href: "/contact" },
 ];
 
 const services = [
-  "Frosted Glass Film",
-  "Sparkle Glass Film",
-  "Printed Glass Film",
-  "Safety Glass Film",
-  "One Way Vision Film",
-  "Decorative Tinting",
+  { name: "Frosted Glass Film", href: "/services/plain-frosted-glass-film" },
+  { name: "Sparkle Glass Film", href: "/services/sparkle-glass-film" },
+  { name: "Printed Glass Film", href: "/services/printed-glass-film" },
+  { name: "Safety Glass Film", href: "/services/safety-glass-film" },
+  { name: "One Way Vision Film", href: "/services/one-way-vision-glass-film" },
+  { name: "Decorative Tinting", href: "/services/decorative-window-tinting" },
 ];
 
 export function Footer() {
@@ -72,12 +72,12 @@ export function Footer() {
             </h3>
             <ul className="space-y-2">
               {services.map((service) => (
-                <li key={service}>
+                <li key={service.name}>
                   <Link
-                    href="#services"
+                    href={service.href}
                     className="text-muted-foreground hover:text-secondary transition-colors text-sm"
                   >
-                    {service}
+                    {service.name}
                   </Link>
                 </li>
               ))}

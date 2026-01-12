@@ -69,7 +69,7 @@ export function Hero() {
               >
                 <Link href="tel:9908119150">
                   <Phone className="w-5 h-5 mr-2" />
-                  Call Now: 9908119150
+                  Call Now 
                 </Link>
               </Button>
               
@@ -85,7 +85,7 @@ export function Hero() {
                   rel="noopener noreferrer"
                 >
                   <MessageCircle className="w-5 h-5 mr-2" />
-                  WhatsApp Consultation
+                  WhatsApp  
                 </Link>
               </Button>
             </motion.div>
@@ -125,6 +125,8 @@ export function Hero() {
                 loop
                 muted
                 playsInline
+                preload="metadata"
+                poster="/services/images/Modernofficewithfrostedpartitions.png"
                 className="w-full h-full object-cover"
               >
                 <source src="/herosectionvideo.mp4" type="video/mp4" />
