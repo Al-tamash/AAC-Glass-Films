@@ -4,8 +4,10 @@ import { Suspense } from "react";
 import { Header } from "@/components/landing/header";
 import { Hero } from "@/components/landing/hero";
 import { TrustedBy } from "@/components/landing/trusted-by";
-import { Services } from "@/components/landing/services";
+
+import { MainServices } from "@/components/landing/main-services";
 import { Process } from "@/components/landing/process";
+
 import { Testimonials } from "@/components/landing/testimonials";
 import { Gallery } from "@/components/landing/gallery";
 import { WhyChooseUs } from "@/components/landing/why-choose-us";
@@ -145,7 +147,7 @@ export default function Home() {
       <main>
         <Hero />
         <TrustedBy />
-        <Services />
+        <MainServices />
         <Process />
         <Testimonials />
         <WhyChooseUs />
