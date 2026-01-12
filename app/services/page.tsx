@@ -140,7 +140,7 @@ export default function ServicesPage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {services.map((service, index) => (
                 <FadeIn key={service.slug} delay={index * 0.05} duration={0.4}>
-                  <Link href={`/services/${service.slug}`}>
+                  <Link href={`/services/glass-film-solutions#${service.slug}`}>
                     <Card className="h-full group hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 overflow-hidden cursor-pointer flex flex-col border-border">
                       <div className="relative w-full h-48 bg-muted">
                         <Image

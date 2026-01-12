@@ -95,7 +95,7 @@ export default function AboutPage() {
                     Call Now
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg">
+                <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                   <Link
                     href="https://wa.me/919908119150"
                     target="_blank"

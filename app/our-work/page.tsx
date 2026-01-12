@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Award, Image as ImageIcon, Star, Phone, MessageCircle } from "lucide-react";
@@ -52,7 +53,7 @@ export default function GalleryPage() {
                     Get Similar Work Done
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg">
+                <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                   <Link
                     href="https://wa.me/919908119150"
                     target="_blank"
@@ -87,7 +88,9 @@ export default function GalleryPage() {
         </section>
 
         {/* Gallery Section */}
-        <GallerySection />
+        <Suspense fallback={<div className="section-container py-12 text-center">Loading gallery...</div>}>
+          <GallerySection />
+        </Suspense>
 
         {/* Testimonials - Using Home Page Component */}
         <Testimonials />

@@ -39,12 +39,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Service pages
-  const servicePages = services.map((service) => ({
-    url: `${baseUrl}/services/${service.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.8,
-  }));
+  const servicePages = [
+    {
+      url: `${baseUrl}/services/glass-film-solutions`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.9,
+    },
+  ];
 
   return [...mainPages, ...servicePages];
 }

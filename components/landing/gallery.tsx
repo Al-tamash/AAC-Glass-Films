@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { Play, X, ChevronLeft, ChevronRight, ChevronDown, ChevronUp } from "lucide-react";
@@ -122,6 +123,23 @@ export function Gallery() {
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [videoPlaying, setVideoPlaying] = useState<string | null>(null);
   const [showAll, setShowAll] = useState(false);
+  
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const category = searchParams.get("category");
+    if (category) {
+      const exists = services.some((s) => s.id === category);
+      if (exists) {
+        setActiveService(category);
+        // Scroll to gallery section if needed, or it might be handled by the user clicking the link
+        const element = document.getElementById("gallery-content");
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }
+  }, [searchParams]);
 
   const INITIAL_ITEMS = 8; // Show 2 rows (4 columns x 2 rows)
 

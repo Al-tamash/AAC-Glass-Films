@@ -15,12 +15,14 @@ export interface Service {
   applications: string[];
   applicationIcons: string[];
   gallery: string[];
+  galleryCategory?: string;
   faqs: FAQ[];
 }
 
 export const services: Service[] = [
   {
     slug: "plain-frosted-glass-film",
+    galleryCategory: "frosted",
     title: "Plain Frosted Glass Film",
     tagline: "Ideal for offices and bathrooms.",
     shortDescription: "Enhances privacy while allowing natural light to pass through.",
@@ -87,6 +89,7 @@ export const services: Service[] = [
   },
   {
     slug: "sparkle-glass-film",
+    galleryCategory: "sparkle",
     title: "Sparkle Glass Film",
     tagline: "Perfect for showrooms and modern interiors.",
     shortDescription: "Adds a stylish sparkle effect to glass surfaces.",
@@ -149,6 +152,7 @@ export const services: Service[] = [
   },
   {
     slug: "printed-glass-film",
+    galleryCategory: "printed",
     title: "Printed Glass Film",
     tagline: "Best for branding and décor.",
     shortDescription: "Custom designs, logos, and patterns printed on high-quality film.",
@@ -218,6 +222,7 @@ export const services: Service[] = [
   },
   {
     slug: "colour-glass-film",
+    galleryCategory: "colour",
     title: "Colour Glass Film",
     tagline: "Great for creative interiors.",
     shortDescription: "Adds vibrant colour to glass without permanent changes.",
@@ -280,6 +285,7 @@ export const services: Service[] = [
   },
   {
     slug: "one-way-vision-glass-film",
+    galleryCategory: "one-way",
     title: "One Way Vision Glass Film",
     tagline: "Ideal for offices and storefronts.",
     shortDescription: "Clear inside view while blocking outside visibility.",
@@ -342,6 +348,7 @@ export const services: Service[] = [
   },
   {
     slug: "colour-vinyl-glass-film",
+    galleryCategory: "vinyl",
     title: "Colour Vinyl Glass Film",
     tagline: "Perfect for indoor and outdoor applications.",
     shortDescription: "Durable, long-lasting vinyl films for glass surfaces.",
@@ -411,6 +418,7 @@ export const services: Service[] = [
   },
   {
     slug: "safety-glass-film",
+    galleryCategory: "safety",
     title: "Safety Glass Film",
     tagline: "Recommended for homes and commercial spaces.",
     shortDescription: "Protects against shattering and improves glass strength.",
@@ -473,6 +481,7 @@ export const services: Service[] = [
   },
   {
     slug: "decorative-window-tinting",
+    galleryCategory: "tinting",
     title: "Decorative Window Tinting",
     tagline: "Best for heat and glare control.",
     shortDescription: "Keeps interiors cooler while enhancing appearance.",

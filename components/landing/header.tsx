@@ -10,9 +10,9 @@ import { services } from "@/lib/service-data";
 
 const navItems = [
   { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
   { name: "Services", href: "/services", hasDropdown: true },
   { name: "Our Work", href: "/our-work" },
-  { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -111,23 +111,23 @@ export function Header() {
                         className="absolute top-full left-0 mt-2 w-72 bg-background border border-border rounded-xl shadow-xl overflow-hidden"
                       >
                         <div className="py-2">
-                          {services.map((service) => (
-                            <Link
-                              key={service.slug}
-                              href={`/services/${service.slug}`}
-                              className="block px-4 py-2.5 text-sm text-foreground/80 hover:text-primary hover:bg-muted transition-colors"
-                            >
-                              {service.title}
-                            </Link>
-                          ))}
-                          <div className="border-t border-border mt-2 pt-2">
-                            <Link
-                              href="/services"
-                              className="block px-4 py-2.5 text-sm font-medium text-primary hover:bg-muted transition-colors"
-                            >
-                              View All Services →
-                            </Link>
+                          <Link 
+                            href="/services/glass-film-solutions"
+                            className="block px-4 py-2 text-sm font-semibold text-primary hover:bg-muted transition-colors"
+                          >
+                            Glass Film Solutions
+                          </Link>
+                          
+                          {/* Future Services Placeholders */}
+                          <div className="px-4 py-2 text-sm font-medium text-muted-foreground cursor-not-allowed flex items-center justify-between opacity-70">
+                            Second Services
+                            <span className="text-[10px] bg-primary/10 text-primary px-1.5 py-0.5 rounded ml-2">Coming Soon</span>
                           </div>
+                          <div className="px-4 py-2 text-sm font-medium text-muted-foreground cursor-not-allowed flex items-center justify-between opacity-70">
+                            Third Services
+                            <span className="text-[10px] bg-primary/10 text-primary px-1.5 py-0.5 rounded ml-2">Coming Soon</span>
+                          </div>
+                          {/* Individual service links removed for cleaner navigation */}
                         </div>
                       </motion.div>
                     )}
@@ -219,29 +219,27 @@ export function Header() {
                             className="overflow-hidden"
                           >
                             <div className="pl-4 py-2 space-y-1">
-                              {services.map((service) => (
-                                <Link
-                                  key={service.slug}
-                                  href={`/services/${service.slug}`}
-                                  className="block px-4 py-2 text-sm text-foreground/80 hover:text-primary hover:bg-muted rounded-lg transition-colors"
-                                  onClick={() => {
-                                    setIsMobileMenuOpen(false);
-                                    setIsMobileServicesOpen(false);
-                                  }}
-                                >
-                                  {service.title}
-                                </Link>
-                              ))}
                               <Link
-                                href="/services"
-                                className="block px-4 py-2 text-sm font-medium text-primary hover:bg-muted rounded-lg transition-colors"
+                                href="/services/glass-film-solutions"
+                                className="block px-4 py-2 text-xs font-semibold text-primary uppercase tracking-wider hover:bg-muted transition-colors"
                                 onClick={() => {
                                   setIsMobileMenuOpen(false);
                                   setIsMobileServicesOpen(false);
                                 }}
                               >
-                                View All Services →
+                                Glass Film Solutions
                               </Link>
+                              
+                              {/* Future Services Placeholders */}
+                              <div className="block px-4 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider opacity-70 flex items-center justify-between">
+                                Second Services
+                                <span className="text-[9px] bg-primary/10 text-primary px-1.5 py-0.5 rounded ml-2">Soon</span>
+                              </div>
+                              <div className="block px-4 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider opacity-70 flex items-center justify-between">
+                                Third Services
+                                <span className="text-[9px] bg-primary/10 text-primary px-1.5 py-0.5 rounded ml-2">Soon</span>
+                              </div>
+                              {/* Individual service links removed */}
                             </div>
                           </motion.div>
                         )}
