@@ -5,36 +5,45 @@ import {
   Palette,
   Wrench,
   ShieldCheck,
+  LucideIcon,
+  Circle,
 } from "lucide-react";
 
-const steps = [
+export interface Step {
+  number: string;
+  icon?: LucideIcon;
+  title: string;
+  description: string;
+}
+
+const defaultSteps: Step[] = [
   {
     number: "01",
     icon: MessageSquare,
     title: "Free Consultation",
     description:
-      "Call or WhatsApp us with your requirements — frosted, safety, decorative, or any glass film type.",
+      "Call or WhatsApp us with your requirements — glass films, acrylic signage, or canvas printing.",
   },
   {
     number: "02",
     icon: ClipboardCheck,
     title: "Site Inspection",
     description:
-      "We visit your home, office, or shop to measure glass surfaces and understand your needs.",
+      "We visit your location to take measurements and understand your specific needs.",
   },
   {
     number: "03",
     icon: Palette,
-    title: "Film Selection",
+    title: "Design & Selection",
     description:
-      "Choose from our range: plain frosted, sparkle, printed, colour, one-way vision, safety, or vinyl films.",
+      "Choose from our wide range of films, signage styles, or canvas finishes to match your vision.",
   },
   {
     number: "04",
     icon: Wrench,
     title: "Professional Installation",
     description:
-      "Our expert technicians install your chosen film with bubble-free precision — clean and quick.",
+      "Our expert technicians install your chosen solution with precision — clean and quick.",
   },
   {
     number: "05",
@@ -45,21 +54,32 @@ const steps = [
   },
 ];
 
-export function Process() {
+interface ProcessProps {
+  steps?: Step[];
+  title?: string;
+  description?: string;
+  categoryName?: string;
+}
+
+export function Process({
+  steps = defaultSteps,
+  title = "How We Work — From Consultation to Installation",
+  description = "Whether it's glass films for privacy, acrylic signage for branding, or canvas prints for decor — our 5-step process ensures a smooth, hassle-free experience.",
+  categoryName = "Work Process"
+}: ProcessProps) {
   return (
     <section className="section-spacing bg-muted/30">
       <div className="section-container">
         {/* Section Header */}
         <FadeIn className="text-center max-w-3xl mx-auto mb-8">
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
-            Our Work Process
+            {categoryName}
           </span>
           <h2 className="mt-3 mb-4">
-            How We Work — From Consultation to Installation
+            {title}
           </h2>
           <p className="text-muted-foreground text-lg">
-            Whether it's frosted film for your bathroom, safety film for your office, or decorative 
-            tinting for your showroom — our 5-step process ensures a smooth, hassle-free experience.
+            {description}
           </p>
         </FadeIn>
 
@@ -78,7 +98,7 @@ export function Process() {
               >
                 {/* Step circle with icon */}
                 <div className="relative z-10 mx-auto w-16 h-16 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <step.icon className="w-7 h-7 text-primary" />
+                  {step.icon ? <step.icon className="w-7 h-7 text-primary" /> : <Circle className="w-7 h-7 text-primary" />}
                 </div>
 
                 {/* Step number badge */}

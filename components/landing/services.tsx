@@ -14,11 +14,10 @@ export function Services() {
             Our Services
           </span>
           <h2 className="mt-3 mb-4">
-            Professional Glass Film Services in Hyderabad
+            Professional Glass Solutions in Hyderabad
           </h2>
           <p className="text-muted-foreground text-lg">
-            From privacy solutions to decorative enhancements, we offer a complete
-            range of glass film and vinyl services for homes and businesses across Telangana.
+            We provide comprehensive glass film services, premium acrylic signage, and museum-quality canvas printing. Explore our main categories below.
           </p>
         </FadeIn>
 

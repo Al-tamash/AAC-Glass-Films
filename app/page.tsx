@@ -12,7 +12,6 @@ import { Testimonials } from "@/components/landing/testimonials";
 import { Gallery } from "@/components/landing/gallery";
 import { WhyChooseUs } from "@/components/landing/why-choose-us";
 import { FAQ } from "@/components/landing/faq";
-import { CTA } from "@/components/landing/cta";
 import { Contact } from "@/components/landing/contact";
 import { Footer } from "@/components/landing/footer";
 import { StickyMobileCTA } from "@/components/landing/sticky-mobile-cta";
@@ -155,7 +154,6 @@ export default function Home() {
           <Gallery />
         </Suspense>
         <FAQ />
-        <CTA />
         <Contact />
       </main>
       <Footer />

@@ -5,12 +5,12 @@ const benefits = [
   {
     title: "Expert Installation Team",
     description:
-      "Our trained professionals ensure bubble-free, perfectly aligned installation every single time.",
+      "Our trained professionals ensure precise, flawless installation for glass films, signage, and canvas prints.",
   },
   {
     title: "Premium Quality Materials",
     description:
-      "We use only top-grade films that are scratch-resistant, UV-protected, and built to last.",
+      "We use only top-grade materials — scratch-resistant films, durable acrylic, and museum-quality canvas.",
   },
   {
     title: "Competitive Pricing",
@@ -20,7 +20,7 @@ const benefits = [
   {
     title: "Wide Range of Options",
     description:
-      "From frosted to safety films, we offer the most comprehensive selection in Hyderabad.",
+      "From frosted films to LED signage and custom canvas prints, we offer the most comprehensive selection in Hyderabad.",
   },
   {
     title: "Quick Turnaround Time",
@@ -56,8 +56,8 @@ export function WhyChooseUs() {
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
               When you choose AAC Glass Films, you're choosing quality, reliability, 
-              and a team that genuinely cares about transforming your space. Here's 
-              what sets us apart from other glass film services in Hyderabad.
+              and a team that genuinely cares about transforming your space — whether it's 
+              glass films, acrylic signage, or canvas printing.
             </p>
 
             {/* Highlights */}

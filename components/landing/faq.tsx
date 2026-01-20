@@ -4,45 +4,60 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown } from "lucide-react";
 
-const faqs = [
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+const defaultFaqs: FAQItem[] = [
+  {
+    question: "What services do you offer?",
+    answer:
+      "We offer three main services: Glass Film Solutions (frosted, decorative, safety, sun control films), Acrylic Signage (LED letters, 3D signage, name plates), and Canvas Printing (high-resolution photo prints with professional installation).",
+  },
   {
     question: "How long does glass film last?",
     answer:
       "High-quality glass films typically last 10–15 years with proper care. Our premium films are scratch-resistant, UV-protected, and designed to withstand Hyderabad's climate without peeling or fading.",
   },
   {
-    question: "Does glass film reduce heat inside rooms?",
+    question: "What types of acrylic signage do you provide?",
     answer:
-      "Yes! Our solar control and decorative window tinting films can reduce indoor heat by up to 60%, keeping your space cooler and cutting down on AC costs — especially useful during Hyderabad's hot summers.",
+      "We offer LED & 3D acrylic letters, letters boards, name plates, wall & door letters, custom laser cutting, Islamic wall art, mementos & awards, and flat letters for resin art.",
   },
   {
-    question: "Will glass film give me complete privacy?",
+    question: "Can you print any image on canvas?",
     answer:
-      "It depends on the type. Frosted and one-way vision films offer excellent daytime privacy while still allowing natural light. For 24/7 privacy, we recommend opaque or blackout films.",
-  },
-  {
-    question: "How do I clean and maintain glass film?",
-    answer:
-      "Simply wipe with a soft cloth and mild soapy water. Avoid abrasive cleaners or rough scrubbing. That's it — our films are low-maintenance and easy to keep looking fresh.",
-  },
-  {
-    question: "Can glass film be removed later?",
-    answer:
-      "Yes, glass films are removable without damaging the glass. Our team can professionally remove old films if you want to upgrade or change styles. No residue, no hassle.",
-  },
-  {
-    question: "Is the installation process safe for my glass?",
-    answer:
-      "Absolutely. We use bubble-free, precision installation techniques that are completely safe for all glass types. The process is clean, quick, and doesn't involve any drilling or permanent fixtures.",
+      "Yes! We can print any high-resolution digital image on canvas — family photos, landscapes, digital art, and more. We check image quality before printing to ensure the best results.",
   },
   {
     question: "How long does installation take?",
     answer:
-      "Most residential installations are completed within 2–4 hours. For larger commercial projects, we provide a timeline after assessing your space. Same-day service is available in Hyderabad.",
+      "Most residential glass film installations are completed within 2–4 hours. Acrylic signage and canvas installation times vary based on size and complexity. Same-day service is available in Hyderabad.",
+  },
+  {
+    question: "Do you serve areas outside Hyderabad?",
+    answer:
+      "Yes, we serve all of Telangana including Secunderabad, Gachibowli, Hitech City, Madhapur, Kukatpally, and surrounding areas. Contact us for installations in other cities.",
+  },
+  {
+    question: "What are your payment options?",
+    answer:
+      "We accept cash, UPI, bank transfer, and all major credit/debit cards. For large commercial projects, we offer flexible payment terms.",
   },
 ];
 
-export function FAQ() {
+interface FAQProps {
+  items?: FAQItem[];
+  title?: string;
+  description?: string;
+}
+
+export function FAQ({
+  items = defaultFaqs,
+  title = "Frequently Asked Questions",
+  description = "Got questions about our glass films, signage, or canvas printing services? Here are answers to common queries from our customers in Hyderabad."
+}: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleFAQ = (index: number) => {
@@ -64,17 +79,16 @@ export function FAQ() {
             FAQs
           </span>
           <h2 className="mt-3 mb-4">
-            Common Questions About Glass Film Installation
+            {title}
           </h2>
           <p className="text-muted-foreground text-lg">
-            Got questions? We've got answers. Here's what our customers in Hyderabad 
-            commonly ask before getting glass film installed.
+            {description}
           </p>
         </motion.div>
 
         {/* FAQ Accordion */}
         <div className="max-w-3xl mx-auto space-y-4">
-          {faqs.map((faq, index) => (
+          {items.map((faq, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 15 }}

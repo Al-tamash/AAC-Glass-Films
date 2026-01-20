@@ -5,7 +5,19 @@ import { Phone, MessageCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "motion/react";
 
-export function Hero() {
+interface HeroProps {
+  title?: React.ReactNode; 
+  description?: string;
+  trustBadgeText?: string;
+  videoPoster?: string;
+}
+
+export function Hero({
+  title = <>Hyderabad's Trusted Experts for <span className="text-gradient">Glass Films, Signage & Canvas Printing</span></>,
+  description = "From decorative glass films to LED acrylic signage and museum-quality canvas prints, we help homes and businesses enhance privacy, branding, and aesthetics with expert solutions.",
+  trustBadgeText = "Trusted by 500+ clients across Hyderabad",
+  videoPoster = "/services/images/Modernofficewithfrostedpartitions.png"
+}: HeroProps) {
   return (
     <section
       id="home"
@@ -31,7 +43,7 @@ export function Hero() {
             >
               <span className="text-warning">⭐</span>
               <span className="text-xs md:text-sm font-medium text-foreground">
-                Trusted by 500+ clients across Hyderabad
+                {trustBadgeText}
               </span>
             </motion.div>
 
@@ -41,8 +53,7 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="mb-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight"
             >
-              Hyderabad's Trusted Experts for{" "}
-              <span className="text-gradient">Premium Glass Film Solutions</span>
+              {title}
             </motion.h1>
 
             <motion.p
@@ -51,8 +62,7 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-sm md:text-base lg:text-lg text-muted-foreground mb-5 max-w-xl mx-auto lg:mx-0 leading-relaxed"
             >
-              From decorative window tinting to safety glass films, we help homes and 
-              businesses enhance privacy, protection, and style with expert installation.
+              {description}
             </motion.p>
 
             {/* CTA Buttons */}
@@ -80,7 +90,7 @@ export function Hero() {
                 className="text-base md:text-lg px-6 py-3 md:px-8 md:py-4 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
               >
                 <Link
-                  href="https://wa.me/919908119150?text=Hi, I'd like a free consultation for glass film installation."
+                  href="https://wa.me/919908119150?text=Hi, I'd like a free consultation."
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -126,7 +136,7 @@ export function Hero() {
                 muted
                 playsInline
                 preload="metadata"
-                poster="/services/images/Modernofficewithfrostedpartitions.png"
+                poster={videoPoster}
                 className="w-full h-full object-cover"
               >
                 <source src="/herosectionvideo.mp4" type="video/mp4" />

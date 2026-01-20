@@ -4,7 +4,7 @@ import { Header } from "@/components/landing/header";
 import { Footer } from "@/components/landing/footer";
 import { Hero } from "@/components/landing/hero";
 import { CTA } from "@/components/landing/cta";
-import { GlassFilmGrid } from "@/components/services/glass-film-grid";
+import { ServiceCategoryGrid } from "@/components/services/service-category-grid";
 import { TrustedBy } from "@/components/landing/trusted-by";
 import { Process } from "@/components/landing/process";
 import { Testimonials } from "@/components/landing/testimonials";
@@ -28,7 +28,11 @@ export default function GlassFilmSolutionsPage() {
         <TrustedBy />
 
         {/* Services Grid */}
-        <GlassFilmGrid />
+        <ServiceCategoryGrid 
+          category="glass-film" 
+          title="Glass Film Solutions"
+          subtitle="Complete range of Frosted, Sparkle, Printed, and Safety glass films."
+        />
         
         {/* Process */}
         <Process />

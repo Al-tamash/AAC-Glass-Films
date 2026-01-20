@@ -13,13 +13,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "About Us | AAC Glass Films - Hyderabad's Trusted Glass Film Experts",
+  title: "About Us | AAC Glass Films - Glass Films, Signage & Printing Experts",
   description:
-    "Learn about AAC Glass Films - 10+ years of experience providing premium glass film solutions in Hyderabad and Telangana. Quality, reliability, and expert installation.",
+    "Learn about AAC Glass Films - 15+ years of experience providing premium glass films, acrylic signage, and canvas printing in Hyderabad and Telangana.",
   keywords: [
     "about AAC Glass Films",
     "glass film company Hyderabad",
-    "glass film experts Telangana",
+    "acrylic signage Hyderabad",
+    "canvas printing Telangana",
   ],
 };
 
@@ -36,12 +37,12 @@ const values = [
   {
     icon: Target,
     title: "Our Mission",
-    description: "To provide premium glass film solutions that transform spaces, enhance privacy, and improve energy efficiency for homes and businesses across Telangana.",
+    description: "To provide premium glass films, acrylic signage, and canvas printing solutions that transform spaces, enhance branding, and beautify homes and businesses across Telangana.",
   },
   {
     icon: Eye,
     title: "Our Vision",
-    description: "To be the most trusted glass film company in South India, known for quality, innovation, and exceptional customer service.",
+    description: "To be the most trusted visual solutions company in South India, known for quality glass films, stunning signage, and museum-quality prints.",
   },
   {
     icon: Heart,
@@ -81,12 +82,12 @@ export default function AboutPage() {
                 About Us
               </span>
               <h1 className="mt-3 mb-4">
-                Your Trusted Glass Film Partner in Hyderabad
+                Your Trusted Partner for Glass Films, Signage & Printing
               </h1>
               <p className="text-muted-foreground text-lg mb-8">
                 With over 15 years of experience, AAC Glass Films has been
                 transforming spaces across Hyderabad and Telangana with premium
-                glass film solutions.
+                glass films, acrylic signage, and canvas printing solutions.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button asChild size="lg">
@@ -121,17 +122,17 @@ export default function AboutPage() {
                 <h2 className="mt-3 mb-4">From Local Business to Trusted Name</h2>
                 <p className="text-muted-foreground mb-4">
                   AAC Glass Films started with a simple mission: to provide
-                  high-quality glass film solutions that transform ordinary
-                  spaces into extraordinary ones. Over the years, we have grown
-                  from a small local business to a trusted name in the glass
-                  film industry across Telangana.
+                  high-quality solutions that transform ordinary spaces into
+                  extraordinary ones. Over the years, we have expanded from glass
+                  films to include acrylic signage and canvas printing, becoming
+                  a trusted name across Telangana.
                 </p>
                 <p className="text-muted-foreground mb-6">
-                  Our team of skilled professionals brings expertise and
-                  dedication to every project, whether it&apos;s a small
-                  residential installation or a large commercial project. We
-                  take pride in our attention to detail and commitment to
-                  customer satisfaction.
+                  Our team of skilled professionals brings expertise to every
+                  project — whether it&apos;s glass film installation, LED signage
+                  for your business, or canvas prints for your home. We take
+                  pride in our attention to detail and commitment to customer
+                  satisfaction.
                 </p>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                   {stats.map((stat, index) => (
@@ -200,7 +201,7 @@ export default function AboutPage() {
               </span>
               <h2 className="mt-3 mb-4">Areas We Serve</h2>
               <p className="text-muted-foreground">
-                We provide glass film services across Hyderabad and all of Telangana
+                We provide glass films, acrylic signage, and canvas printing across Hyderabad and all of Telangana
               </p>
             </FadeIn>
 

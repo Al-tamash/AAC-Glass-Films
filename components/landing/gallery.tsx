@@ -7,8 +7,22 @@ import { motion, AnimatePresence } from "motion/react";
 import { Play, X, ChevronLeft, ChevronRight, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+export interface GalleryItem {
+  type: "image" | "video";
+  src: string;
+  alt: string;
+  caption: string;
+  thumbnail?: string;
+}
+
+export interface GalleryCategory {
+  id: string;
+  name: string;
+  media: GalleryItem[];
+}
+
 // Service categories with their media items
-const services = [
+const defaultCategories: GalleryCategory[] = [
   {
     id: "all",
     name: "All Projects",
@@ -104,6 +118,59 @@ const services = [
     ],
   },
   {
+    id: "3d-glass",
+    name: "3D Glass Film",
+    media: [
+      { type: "image", src: "/services/3d glass film/e1.jpeg", alt: "3D Glass Film 1", caption: "3D Texture Effect" },
+      { type: "image", src: "/services/3d glass film/e2.jpeg", alt: "3D Glass Film 2", caption: "Decorative 3D Pattern" },
+      { type: "image", src: "/services/3d glass film/e3.jpeg", alt: "3D Glass Film 3", caption: "3D Visual Depth" },
+    ],
+  },
+  {
+    id: "sun-control",
+    name: "Sun Control Film",
+    media: [
+      { type: "image", src: "/services/sun control film for glass window/WhatsApp Image 2026-01-13 at 1.57.31 PM.jpeg", alt: "Sun Control Film 1", caption: "Heat Rejection" },
+      { type: "image", src: "/services/sun control film for glass window/WhatsApp Image 2026-01-13 at 1.57.32 PM.jpeg", alt: "Sun Control Film 2", caption: "UV Protection" },
+    ],
+  },
+  {
+    id: "glass-board",
+    name: "Glass Writing Board",
+    media: [
+      { type: "image", src: "/services/Glass writing board/e1.jpeg", alt: "Glass Writing Board 1", caption: "Modern Whiteboard" },
+      { type: "image", src: "/services/Glass writing board/e2.jpeg", alt: "Glass Writing Board 2", caption: "Meeting Room Board" },
+      { type: "image", src: "/services/Glass writing board/e3.jpeg", alt: "Glass Writing Board 3", caption: "Office Glass Board" },
+      { type: "image", src: "/services/Glass writing board/e4.jpeg", alt: "Glass Writing Board 4", caption: "Magnetic Glass Board" },
+      { type: "image", src: "/services/Glass writing board/e5.jpeg", alt: "Glass Writing Board 5", caption: "Custom Glass Board" },
+    ],
+  },
+  {
+    id: "acrylic-signage",
+    name: "Acrylic Signage",
+    media: [
+      { type: "image", src: "/services/acrylic-signage/Acrylic 3d letters/e1.jpeg", alt: "3D Acrylic Letters", caption: "LED Acrylic Signage" },
+      { type: "image", src: "/services/acrylic-signage/Acrylic 3d letters/e2.jpeg", alt: "3D Letters", caption: "Office Branding" },
+      { type: "image", src: "/services/acrylic-signage/Acrylic 3d letters/e3.jpeg", alt: "Acrylic Sign", caption: "Corporate Signage" },
+      { type: "image", src: "/services/acrylic-signage/Acrylic letters board/e1.jpeg", alt: "Letters Board", caption: "Reception Board" },
+      { type: "image", src: "/services/acrylic-signage/Acrylic letters for name plates/e1.jpeg", alt: "Name Plate", caption: "Office Name Plate" },
+      { type: "image", src: "/services/acrylic-signage/Acrylic design cutting/e1.jpeg", alt: "Design Cutting", caption: "Custom Cut Design" },
+      { type: "image", src: "/services/acrylic-signage/Acrylic 3d Islamic wall art/e1.jpeg", alt: "Islamic Wall Art", caption: "3D Islamic Art" },
+    ],
+  },
+  {
+    id: "canvas-printing",
+    name: "Canvas Printing",
+    media: [
+      { type: "image", src: "/services/canvas-printing/Canvas printing with installation/e1.jpeg", alt: "Canvas Print 1", caption: "Living Room Art" },
+      { type: "image", src: "/services/canvas-printing/Canvas printing with installation/e2.jpeg", alt: "Canvas Print 2", caption: "Family Portrait" },
+      { type: "image", src: "/services/canvas-printing/Canvas printing with installation/e3.jpeg", alt: "Canvas Print 3", caption: "Office Decor" },
+      { type: "image", src: "/services/canvas-printing/Canvas printing with installation/e4.jpeg", alt: "Canvas Print 4", caption: "Gallery Wall" },
+      { type: "image", src: "/services/canvas-printing/Canvas printing with installation/e5.jpeg", alt: "Canvas Print 5", caption: "Custom Art Print" },
+      { type: "image", src: "/services/canvas-printing/Canvas printing with installation/e6.jpeg", alt: "Canvas Print 6", caption: "Photo Canvas" },
+    ],
+  },
+  {
     id: "process",
     name: "Our Team at Work",
     media: [
@@ -115,9 +182,21 @@ const services = [
 ];
 
 // Combine all media for "All Projects" tab
-services[0].media = services.slice(1).flatMap((s) => s.media);
+defaultCategories[0].media = defaultCategories.slice(1).flatMap((s) => s.media);
 
-export function Gallery() {
+interface GalleryProps {
+  categories?: GalleryCategory[];
+  title?: string;
+  description?: string;
+  categoryName?: string;
+}
+
+export function Gallery({
+  categories = defaultCategories,
+  title = "Real Projects. Real Results. See Our Work in Action.",
+  description = "Browse through our completed projects across Hyderabad — glass films, acrylic signage, and canvas printing. Quality you can trust.",
+  categoryName = "Our Work"
+}: GalleryProps) {
   const [activeService, setActiveService] = useState("all");
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
@@ -129,7 +208,7 @@ export function Gallery() {
   useEffect(() => {
     const category = searchParams.get("category");
     if (category) {
-      const exists = services.some((s) => s.id === category);
+      const exists = categories.some((s) => s.id === category);
       if (exists) {
         setActiveService(category);
         // Scroll to gallery section if needed, or it might be handled by the user clicking the link
@@ -143,7 +222,8 @@ export function Gallery() {
 
   const INITIAL_ITEMS = 8; // Show 2 rows (4 columns x 2 rows)
 
-  const currentService = services.find((s) => s.id === activeService) || services[0];
+
+  const currentService = categories.find((s) => s.id === activeService) || categories[0];
   const currentMedia = currentService.media;
   const displayedMedia = showAll ? currentMedia : currentMedia.slice(0, INITIAL_ITEMS);
   const hasMore = currentMedia.length > INITIAL_ITEMS;
@@ -191,14 +271,13 @@ export function Gallery() {
           className="text-center max-w-3xl mx-auto mb-6"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
-            Our Work
+            {categoryName}
           </span>
           <h2 className="mt-3 mb-4">
-            Real Projects. Real Results. See Our Work in Action.
+            {title}
           </h2>
           <p className="text-muted-foreground text-lg">
-            Browse through our completed glass film installations across Hyderabad. 
-            From offices to homes — quality you can trust.
+            {description}
           </p>
         </motion.div>
 
@@ -210,7 +289,7 @@ export function Gallery() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="flex flex-wrap justify-center gap-2 mb-8"
         >
-          {services.map((service) => (
+          {categories.map((service) => (
             <button
               key={service.id}
               onClick={() => {

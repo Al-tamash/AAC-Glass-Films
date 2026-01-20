@@ -6,7 +6,15 @@ import { motion, AnimatePresence } from "motion/react";
 import { Star, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const testimonials = [
+export interface TestimonialItem {
+  rating: number;
+  review: string;
+  name: string;
+  type: string;
+  location: string;
+}
+
+const defaultTestimonials: TestimonialItem[] = [
   {
     rating: 5,
     review:
@@ -14,6 +22,14 @@ const testimonials = [
     name: "Rajesh K.",
     type: "Office Owner",
     location: "Banjara Hills",
+  },
+  {
+    rating: 5,
+    review:
+      "The LED acrylic signage for our new office looks fantastic! Great finish and professional installation. The team was very helpful throughout the process.",
+    name: "Vikram S.",
+    type: "Business Owner",
+    location: "Hi-Tech City",
   },
   {
     rating: 5,
@@ -26,10 +42,26 @@ const testimonials = [
   {
     rating: 5,
     review:
+      "Turned my wedding photos into beautiful canvas prints. The quality is amazing — looks like a painting! Professional installation service too.",
+    name: "Pooja D.",
+    type: "Homeowner",
+    location: "Jubilee Hills",
+  },
+  {
+    rating: 5,
+    review:
       "We hired them for our jewellery showroom. The sparkle glass film looks stunning and adds a premium feel to our display cases. Customers love it!",
     name: "Venkat R.",
     type: "Store Owner",
     location: "Begumpet",
+  },
+  {
+    rating: 5,
+    review:
+      "Ordered custom name plates for our apartment complex. Delivered on time and the acrylic quality is excellent. Very satisfied with the work.",
+    name: "Sujatha R.",
+    type: "Apartment Secretary",
+    location: "Manikonda",
   },
   {
     rating: 4,
@@ -42,34 +74,18 @@ const testimonials = [
   {
     rating: 5,
     review:
-      "Very impressed with the quality and finish. We got decorative tinting for our living room and it has reduced the heat significantly. Thank you!",
-    name: "Anitha S.",
-    type: "Homeowner",
-    location: "Madhapur",
-  },
-  {
-    rating: 5,
-    review:
       "Best glass film service in Hyderabad! They did printed film with our company logo for our storefront. Looks very professional and the installation was flawless.",
     name: "Mohammed A.",
     type: "Store Owner",
     location: "Secunderabad",
   },
   {
-    rating: 4,
-    review:
-      "Reliable and trustworthy. Got colour vinyl film for my bathroom windows. The team explained all options clearly and helped me choose the right one.",
-    name: "Lakshmi N.",
-    type: "Homeowner",
-    location: "Kondapur",
-  },
-  {
     rating: 5,
     review:
-      "Fantastic experience from start to finish. They installed sun control film in our entire office building. Noticeable difference in temperature and AC costs.",
-    name: "Suresh B.",
-    type: "Commercial Client",
-    location: "Gachibowli",
+      "Created a beautiful gallery wall with canvas prints in my living room. Excellent framing and installation service. Highly recommended for personalized gifts too!",
+    name: "Karan M.",
+    type: "Interior Designer",
+    location: "Banjara Hills",
   },
 ];
 
@@ -90,18 +106,30 @@ function StarRating({ rating }: { rating: number }) {
   );
 }
 
-export function Testimonials() {
+interface TestimonialsProps {
+  items?: TestimonialItem[];
+  title?: string;
+  description?: string;
+  categoryName?: string;
+}
+
+export function Testimonials({
+  items = defaultTestimonials,
+  title = "What Our Clients in Hyderabad Say About Us",
+  description = "Verified reviews from Google Maps",
+  categoryName = "Customer Reviews"
+}: TestimonialsProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
 
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  }, []);
+    setCurrentIndex((prev) => (prev + 1) % items.length);
+  }, [items.length]);
 
   const prevSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  }, []);
+    setCurrentIndex((prev) => (prev - 1 + items.length) % items.length);
+  }, [items.length]);
 
   // Auto-play: 5 seconds per slide
   useEffect(() => {
@@ -133,9 +161,14 @@ export function Testimonials() {
   // Show 3 cards on desktop, 1 on mobile
   const getVisibleTestimonials = () => {
     const visible = [];
-    for (let i = 0; i < 3; i++) {
-      const index = (currentIndex + i) % testimonials.length;
-      visible.push({ ...testimonials[index], originalIndex: index });
+    if (items.length === 0) return [];
+    
+    // Ensure we handle fewer than 3 items gracefully
+    const count = Math.min(3, items.length);
+    
+    for (let i = 0; i < count; i++) {
+      const index = (currentIndex + i) % items.length;
+      visible.push({ ...items[index], originalIndex: index });
     }
     return visible;
   };
@@ -152,10 +185,10 @@ export function Testimonials() {
           className="text-center max-w-3xl mx-auto mb-8"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
-            Customer Reviews
+            {categoryName}
           </span>
           <h2 className="mt-3 mb-4">
-            What Our Clients in Hyderabad Say About Us
+            {title}
           </h2>
           <p className="text-muted-foreground text-lg flex items-center justify-center gap-2">
             <span className="inline-block w-6 h-6">
@@ -232,17 +265,17 @@ export function Testimonials() {
                 transition={{ duration: 0.3 }}
                 className="bg-card border border-border rounded-xl p-6"
               >
-                <StarRating rating={testimonials[currentIndex].rating} />
+                <StarRating rating={items[currentIndex].rating} />
                 <p className="mt-4 text-foreground leading-relaxed">
-                  "{testimonials[currentIndex].review}"
+                  "{items[currentIndex].review}"
                 </p>
                 <div className="mt-4 pt-4 border-t border-border">
                   <p className="font-semibold text-foreground">
-                    {testimonials[currentIndex].name}
+                    {items[currentIndex].name}
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    {testimonials[currentIndex].type} •{" "}
-                    {testimonials[currentIndex].location}
+                    {items[currentIndex].type} •{" "}
+                    {items[currentIndex].location}
                   </p>
                 </div>
               </motion.div>
@@ -267,7 +300,7 @@ export function Testimonials() {
 
           {/* Dots indicator */}
           <div className="flex justify-center gap-2 mt-6">
-            {testimonials.map((_, idx) => (
+            {items.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}

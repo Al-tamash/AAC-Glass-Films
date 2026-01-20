@@ -119,15 +119,18 @@ export function Header() {
                           </Link>
                           
                           {/* Future Services Placeholders */}
-                          <div className="px-4 py-2 text-sm font-medium text-muted-foreground cursor-not-allowed flex items-center justify-between opacity-70">
-                            Second Services
-                            <span className="text-[10px] bg-primary/10 text-primary px-1.5 py-0.5 rounded ml-2">Coming Soon</span>
-                          </div>
-                          <div className="px-4 py-2 text-sm font-medium text-muted-foreground cursor-not-allowed flex items-center justify-between opacity-70">
-                            Third Services
-                            <span className="text-[10px] bg-primary/10 text-primary px-1.5 py-0.5 rounded ml-2">Coming Soon</span>
-                          </div>
-                          {/* Individual service links removed for cleaner navigation */}
+                          <Link 
+                            href="/services/acrylic-signage"
+                            className="block px-4 py-2 text-sm font-semibold text-foreground hover:bg-muted transition-colors"
+                          >
+                            Acrylic Signage
+                          </Link>
+                          <Link 
+                            href="/services/canvas-printing"
+                            className="block px-4 py-2 text-sm font-semibold text-foreground hover:bg-muted transition-colors"
+                          >
+                            Canvas Printing
+                          </Link>
                         </div>
                       </motion.div>
                     )}
@@ -231,14 +234,26 @@ export function Header() {
                               </Link>
                               
                               {/* Future Services Placeholders */}
-                              <div className="block px-4 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider opacity-70 flex items-center justify-between">
-                                Second Services
-                                <span className="text-[9px] bg-primary/10 text-primary px-1.5 py-0.5 rounded ml-2">Soon</span>
-                              </div>
-                              <div className="block px-4 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider opacity-70 flex items-center justify-between">
-                                Third Services
-                                <span className="text-[9px] bg-primary/10 text-primary px-1.5 py-0.5 rounded ml-2">Soon</span>
-                              </div>
+                              <Link
+                                href="/services/acrylic-signage"
+                                className="block px-4 py-2 text-xs font-semibold text-foreground uppercase tracking-wider hover:bg-muted transition-colors"
+                                onClick={() => {
+                                  setIsMobileMenuOpen(false);
+                                  setIsMobileServicesOpen(false);
+                                }}
+                              >
+                                Acrylic Signage
+                              </Link>
+                              <Link
+                                href="/services/canvas-printing"
+                                className="block px-4 py-2 text-xs font-semibold text-foreground uppercase tracking-wider hover:bg-muted transition-colors"
+                                onClick={() => {
+                                  setIsMobileMenuOpen(false);
+                                  setIsMobileServicesOpen(false);
+                                }}
+                              >
+                                Canvas Printing
+                              </Link>
                               {/* Individual service links removed */}
                             </div>
                           </motion.div>

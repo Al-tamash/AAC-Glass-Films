@@ -34,6 +34,7 @@ const contactInfo = [
 ];
 
 const serviceOptions = [
+  "--- Glass Film Solutions ---",
   "Frosted Glass Film",
   "Sparkle Glass Film",
   "Printed Glass Film",
@@ -42,7 +43,17 @@ const serviceOptions = [
   "Vinyl Glass Film",
   "Safety Glass Film",
   "Decorative Window Tinting",
-  "Other / Multiple Services",
+  "--- Acrylic Signage ---",
+  "3D Acrylic Letters",
+  "LED Signage",
+  "Acrylic Name Plates",
+  "Acrylic Letters Board",
+  "Custom Laser Cutting",
+  "--- Canvas Printing ---",
+  "Canvas Printing with Installation",
+  "--- Other ---",
+  "Multiple Services",
+  "Other Enquiry",
 ];
 
 export function Contact() {

@@ -22,11 +22,11 @@ export function CTA() {
           className="max-w-3xl mx-auto text-center"
         >
           <h2 className="text-primary-foreground mb-6">
-            Ready to Transform Your Glass Surfaces?
+            Ready to Transform Your Space?
           </h2>
           <p className="text-primary-foreground/90 text-lg md:text-xl mb-8">
-            Get a free consultation and quote today. Our team is ready to help 
-            you find the perfect glass film solution for your home or business.
+            Get a free consultation and quote today. Whether you need glass films, 
+            acrylic signage, or canvas printing — our team is ready to help!
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

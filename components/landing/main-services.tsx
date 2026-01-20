@@ -3,7 +3,8 @@
 import { FadeIn } from "@/components/landing/anim-wrapper";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
-import { Layers, PlusCircle, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export function MainServices() {
   return (
@@ -15,25 +16,31 @@ export function MainServices() {
             Our Services
           </span>
           <h2 className="mt-3 mb-4">
-            Professional Glass Solutions in Hyderabad
+           Complete Glass, Signage & Printing Solutions in Hyderabad
           </h2>
           <p className="text-muted-foreground text-lg">
-            We provide comprehensive glass film services. Explore our main categories below.
+            We provide comprehensive glass film services, premium acrylic signage, and museum-quality canvas printing. Explore our main categories below.
           </p>
         </FadeIn>
 
         {/* Main Categories Grid */}
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           
-          {/* 1. Glass Film Solutions (Active) */}
+          {/* 1. Glass Film Solutions */}
           <FadeIn delay={0.1}>
             <Link href="/services/glass-film-solutions" className="block h-full group">
               <Card className="h-full border-border hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 cursor-pointer overflow-hidden relative">
-                <div className="h-2 w-full bg-primary" />
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <Layers className="w-6 h-6 text-primary" />
-                  </div>
+                <div className="relative w-full h-48 overflow-hidden">
+                  <Image
+                    src="/services/printed-glass-film/images/pgf1.jpeg"
+                    alt="Glass Film Solutions"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                </div>
+                <CardHeader className="pt-4">
                   <CardTitle className="text-2xl group-hover:text-primary transition-colors">
                     Glass Film Solutions
                   </CardTitle>
@@ -41,7 +48,7 @@ export function MainServices() {
                 <CardContent>
                   <p className="text-muted-foreground mb-6">
                     Complete range of Frosted, Sparkle, Printed, and Safety glass films for privacy and decoration. 
-                    Includes 8 specialized variants.
+                    Includes 10+ specialized variants.
                   </p>
                   
                   <ul className="space-y-2 mb-6">
@@ -67,48 +74,98 @@ export function MainServices() {
             </Link>
           </FadeIn>
 
-          {/* 2. Second Services (Coming Soon) */}
+          {/* 2. Acrylic Signage Services */}
           <FadeIn delay={0.2}>
-            <div className="h-full block relative opacity-80">
-              <Card className="h-full border-dashed border-2 border-border/60 bg-muted/20 flex flex-col">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center mb-4">
-                    <PlusCircle className="w-6 h-6 text-muted-foreground" />
-                  </div>
-                  <CardTitle className="text-2xl text-muted-foreground flex items-center justify-between">
-                    Second Services
-                    <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-medium">Coming Soon</span>
+            <Link href="/services/acrylic-signage" className="block h-full group">
+              <Card className="h-full border-border hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 cursor-pointer overflow-hidden relative">
+                <div className="relative w-full h-48 overflow-hidden">
+                  <Image
+                    src="/services/acrylic-signage/Acrylic 3d letters/e1.jpeg"
+                    alt="Acrylic Signage"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                </div>
+                <CardHeader className="pt-4">
+                  <CardTitle className="text-2xl group-hover:text-primary transition-colors">
+                    Acrylic Signage
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-muted-foreground/80">
-                    We are expanding our portfolio. New premium services will be available shortly to serve you better.
+                <CardContent>
+                  <p className="text-muted-foreground mb-6">
+                    Premium acrylic letters, LED signage, and custom boards for high-impact branding.
                   </p>
+                  
+                  <ul className="space-y-2 mb-6">
+                    <li className="flex items-center text-sm text-foreground/80">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary/60 mr-2" />
+                      LED & 3D Letters
+                    </li>
+                    <li className="flex items-center text-sm text-foreground/80">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary/60 mr-2" />
+                      Name Plates & Awards
+                    </li>
+                    <li className="flex items-center text-sm text-foreground/80">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary/60 mr-2" />
+                      Custom Laser Cutting
+                    </li>
+                  </ul>
+
+                  <div className="flex items-center text-primary font-medium group-hover:underline">
+                    View All Signage <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </div>
                 </CardContent>
               </Card>
-            </div>
+            </Link>
           </FadeIn>
 
-           {/* 3. Third Services (Coming Soon) */}
+           {/* 3. Canvas Printing */}
            <FadeIn delay={0.3}>
-            <div className="h-full block relative opacity-80">
-              <Card className="h-full border-dashed border-2 border-border/60 bg-muted/20 flex flex-col">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center mb-4">
-                    <PlusCircle className="w-6 h-6 text-muted-foreground" />
-                  </div>
-                  <CardTitle className="text-2xl text-muted-foreground flex items-center justify-between">
-                    Third Services
-                    <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-medium">Coming Soon</span>
+            <Link href="/services/canvas-printing" className="block h-full group">
+              <Card className="h-full border-border hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 cursor-pointer overflow-hidden relative">
+                <div className="relative w-full h-48 overflow-hidden">
+                  <Image
+                    src="/services/canvas-printing/Canvas printing with installation/e1.jpeg"
+                    alt="Canvas Printing"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                </div>
+                <CardHeader className="pt-4">
+                  <CardTitle className="text-2xl group-hover:text-primary transition-colors">
+                    Canvas Printing
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-muted-foreground/80">
-                    Our team is working on bringing more innovative solutions for your residential and commercial needs.
+                <CardContent>
+                  <p className="text-muted-foreground mb-6">
+                    Turn your favorite photos and digital art into museum-quality canvas prints.
                   </p>
+                  
+                  <ul className="space-y-2 mb-6">
+                    <li className="flex items-center text-sm text-foreground/80">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary/60 mr-2" />
+                      High-Resolution Prints
+                    </li>
+                    <li className="flex items-center text-sm text-foreground/80">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary/60 mr-2" />
+                      Gallery Wrap Finish
+                    </li>
+                    <li className="flex items-center text-sm text-foreground/80">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary/60 mr-2" />
+                      Professional Installation
+                    </li>
+                  </ul>
+
+                  <div className="flex items-center text-primary font-medium group-hover:underline">
+                    View Canvas Options <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </div>
                 </CardContent>
               </Card>
-            </div>
+            </Link>
           </FadeIn>
 
         </div>
