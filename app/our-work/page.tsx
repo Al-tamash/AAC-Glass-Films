@@ -5,9 +5,9 @@ import { Award, Image as ImageIcon, Star, Phone, MessageCircle } from "lucide-re
 
 import { Header } from "@/components/landing/header";
 import { Footer } from "@/components/landing/footer";
-import { Gallery as GallerySection } from "@/components/landing/gallery";
+import { CategorizedGallery } from "@/components/landing/categorized-gallery";
 import { Testimonials } from "@/components/landing/testimonials";
-import { CTA } from "@/components/landing/cta";
+import { Contact } from "@/components/landing/contact";
 import { FadeIn } from "@/components/landing/anim-wrapper";
 import { Button } from "@/components/ui/button";
 
@@ -88,15 +88,13 @@ export default function GalleryPage() {
         </section>
 
         {/* Gallery Section */}
-        <Suspense fallback={<div className="section-container py-12 text-center">Loading gallery...</div>}>
-          <GallerySection />
-        </Suspense>
+        <CategorizedGallery />
 
-        {/* Testimonials - Using Home Page Component */}
+        {/* Testimonials */}
         <Testimonials />
 
-        {/* CTA */}
-        <CTA />
+        {/* Contact */}
+        <Contact />
       </main>
       <Footer />
     </>

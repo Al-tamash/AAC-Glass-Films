@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, MessageCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "motion/react";
@@ -10,13 +11,15 @@ interface HeroProps {
   description?: string;
   trustBadgeText?: string;
   videoPoster?: string;
+  heroImage?: string; // If provided, shows image instead of video
 }
 
 export function Hero({
   title = <>Hyderabad's Trusted Experts for <span className="text-gradient">Glass Films, Signage & Canvas Printing</span></>,
   description = "From decorative glass films to LED acrylic signage and museum-quality canvas prints, we help homes and businesses enhance privacy, branding, and aesthetics with expert solutions.",
   trustBadgeText = "Trusted by 500+ clients across Hyderabad",
-  videoPoster = "/services/images/Modernofficewithfrostedpartitions.png"
+  videoPoster = "/services/images/Modernofficewithfrostedpartitions.png",
+  heroImage
 }: HeroProps) {
   return (
     <section
@@ -122,7 +125,7 @@ export function Hero({
             </motion.div>
           </div>
 
-          {/* Right: Video */}
+          {/* Right: Video or Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -130,22 +133,32 @@ export function Hero({
             className="order-1 lg:order-2"
           >
             <div className="relative aspect-[4/3] md:aspect-video rounded-2xl overflow-hidden shadow-2xl border border-border/50 bg-card">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
-                poster={videoPoster}
-                className="w-full h-full object-cover"
-              >
-                <source src="/herosectionvideo.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              {heroImage ? (
+                <Image
+                  src={heroImage}
+                  alt="Service showcase"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              ) : (
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  poster={videoPoster}
+                  className="w-full h-full object-cover"
+                >
+                  <source src="/herosectionvideo.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              )}
               {/* Overlay gradient for premium look */}
               <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none" />
               {/* Corner overlay to cover watermark */}
-              <div className="absolute bottom-0 right-0 w-16 h-8 bg-background rounded-tl-lg pointer-events-none" />
+              {!heroImage && <div className="absolute bottom-0 right-0 w-16 h-8 bg-background rounded-tl-lg pointer-events-none" />}
             </div>
           </motion.div>
         </div>

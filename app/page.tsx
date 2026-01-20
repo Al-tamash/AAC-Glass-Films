@@ -3,13 +3,13 @@ import { Suspense } from "react";
 
 import { Header } from "@/components/landing/header";
 import { Hero } from "@/components/landing/hero";
-import { TrustedBy } from "@/components/landing/trusted-by";
+import { QuickStats } from "@/components/landing/quick-stats";
 
 import { MainServices } from "@/components/landing/main-services";
 import { Process } from "@/components/landing/process";
 
 import { Testimonials } from "@/components/landing/testimonials";
-import { Gallery } from "@/components/landing/gallery";
+import { GalleryPreview } from "@/components/landing/gallery-preview";
 import { WhyChooseUs } from "@/components/landing/why-choose-us";
 import { FAQ } from "@/components/landing/faq";
 import { Contact } from "@/components/landing/contact";
@@ -145,14 +145,12 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <TrustedBy />
+        <QuickStats />
         <MainServices />
         <Process />
         <Testimonials />
         <WhyChooseUs />
-        <Suspense fallback={<div className="section-spacing bg-muted/30"><div className="section-container text-center py-12">Loading gallery...</div></div>}>
-          <Gallery />
-        </Suspense>
+        <GalleryPreview />
         <FAQ />
         <Contact />
       </main>

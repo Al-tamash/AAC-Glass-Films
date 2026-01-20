@@ -7,7 +7,7 @@ import { Header } from "@/components/landing/header";
 import { Footer } from "@/components/landing/footer";
 import { WhyChooseUs } from "@/components/landing/why-choose-us";
 import { Testimonials } from "@/components/landing/testimonials";
-import { CTA } from "@/components/landing/cta";
+import { Contact } from "@/components/landing/contact";
 import { FadeIn } from "@/components/landing/anim-wrapper";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -236,8 +236,8 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* CTA */}
-        <CTA />
+        {/* Contact Form */}
+        <Contact />
       </main>
       <Footer />
     </>

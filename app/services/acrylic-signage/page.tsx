@@ -3,9 +3,9 @@ import { Suspense } from "react";
 import { Header } from "@/components/landing/header";
 import { Footer } from "@/components/landing/footer";
 import { Hero } from "@/components/landing/hero";
-import { CTA } from "@/components/landing/cta";
+import { Contact } from "@/components/landing/contact";
 import { ServiceCategoryGrid } from "@/components/services/service-category-grid";
-import { TrustedBy } from "@/components/landing/trusted-by";
+import { QuickStats } from "@/components/landing/quick-stats";
 import { Process } from "@/components/landing/process";
 import { Testimonials } from "@/components/landing/testimonials";
 import { Gallery } from "@/components/landing/gallery";
@@ -27,10 +27,11 @@ export default function AcrylicSignagePage() {
           title={<>Premium <span className="text-gradient">Acrylic Signage Solutions</span> in Hyderabad</>}
           description="Elevate your brand with high-quality LED letters, 3D acrylic signs, name plates, and custom awards. Professional design and installation."
           trustBadgeText="Trusted for Corporate Branding"
+          heroImage="/services/acrylic-signage/Acrylic 3d letters/e1.jpeg"
         />
 
-        {/* Trusted By */}
-        <TrustedBy />
+        {/* Quick Stats */}
+        <QuickStats />
 
         {/* Services Grid */}
         <ServiceCategoryGrid 
@@ -131,8 +132,8 @@ export default function AcrylicSignagePage() {
           ]}
         />
         
-        {/* CTA */}
-        <CTA />
+        {/* Contact Form */}
+        <Contact />
       </main>
       <Footer />
     </>
