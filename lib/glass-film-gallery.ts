@@ -114,11 +114,11 @@ export const glassFilmGalleryCategories = [
     id: "glass-writing-board",
     name: "Glass Writing Board",
     media: [
-      { type: "image" as const, src: "/services/Glass writing board/e1.jpeg", alt: "Glass Writing Board", caption: "Modern Whiteboard" },
-      { type: "image" as const, src: "/services/Glass writing board/e2.jpeg", alt: "Office Glass Board", caption: "Office Meeting Board" },
-      { type: "image" as const, src: "/services/Glass writing board/e3.jpeg", alt: "Whiteboard Glass", caption: "Collaborative Board" },
-      { type: "image" as const, src: "/services/Glass writing board/e4.jpeg", alt: "Conference Room Board", caption: "Conference Room" },
-      { type: "image" as const, src: "/services/Glass writing board/e5.jpeg", alt: "Custom Glass Board", caption: "Custom Glass Board" },
+      { type: "image" as const, src: "/services/glass-writing-board/e1.jpeg", alt: "Glass Writing Board", caption: "Modern Whiteboard" },
+      { type: "image" as const, src: "/services/glass-writing-board/e2.jpeg", alt: "Office Glass Board", caption: "Office Meeting Board" },
+      { type: "image" as const, src: "/services/glass-writing-board/e3.jpeg", alt: "Whiteboard Glass", caption: "Collaborative Board" },
+      { type: "image" as const, src: "/services/glass-writing-board/e4.jpeg", alt: "Conference Room Board", caption: "Conference Room" },
+      { type: "image" as const, src: "/services/glass-writing-board/e5.jpeg", alt: "Custom Glass Board", caption: "Custom Glass Board" },
     ],
   },
 ];

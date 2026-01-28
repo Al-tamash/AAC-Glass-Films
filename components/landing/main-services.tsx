@@ -32,7 +32,7 @@ export function MainServices() {
               <Card className="h-full flex flex-col border-border hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 cursor-pointer overflow-hidden">
                 <div className="relative w-full h-52 overflow-hidden">
                   <Image
-                    src="/services/printed-glass-film/images/pgf1.jpeg"
+                    src="/services/images/glassfilmsolutionserviceimg.png"
                     alt="Glass Film Solutions"
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -79,7 +79,7 @@ export function MainServices() {
               <Card className="h-full flex flex-col border-border hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 cursor-pointer overflow-hidden">
                 <div className="relative w-full h-52 overflow-hidden">
                   <Image
-                    src="/services/acrylic-signage/Acrylic 3d letters/e1.jpeg"
+                    src="/services/images/acrylicsignageserviceimg.png"
                     alt="Acrylic Signage"
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -126,7 +126,7 @@ export function MainServices() {
               <Card className="h-full flex flex-col border-border hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 cursor-pointer overflow-hidden">
                 <div className="relative w-full h-52 overflow-hidden">
                   <Image
-                    src="/services/canvas-printing/Canvas printing with installation/e1.jpeg"
+                    src="/services/images/canvasprintingserviceimg.png"
                     alt="Canvas Printing"
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"

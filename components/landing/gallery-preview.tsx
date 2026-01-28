@@ -13,9 +13,9 @@ const featuredProjects = [
   { src: "/services/printed-glass-film/images/pgf2.jpeg", alt: "Custom Printed Glass", category: "Glass Films" },
   { src: "/services/colour-vinyl-glass-film/images/vgf1.jpeg", alt: "Vinyl Glass Film", category: "Glass Films" },
   // Acrylic Signage
-  { src: "/services/acrylic-signage/Acrylic 3d letters/e1.jpeg", alt: "3D Acrylic Letters", category: "Acrylic Signage" },
-  { src: "/services/acrylic-signage/Acrylic 3d letters/e2.jpeg", alt: "LED Signage", category: "Acrylic Signage" },
-  { src: "/services/acrylic-signage/Acrylic letters board/e1.jpeg", alt: "Acrylic Letters Board", category: "Acrylic Signage" },
+  { src: "/services/acrylic-signage/acrylic-3d-letters/e1.jpeg", alt: "3D Acrylic Letters", category: "Acrylic Signage" },
+  { src: "/services/acrylic-signage/acrylic-3d-letters/e2.jpeg", alt: "LED Signage", category: "Acrylic Signage" },
+  { src: "/services/acrylic-signage/acrylic-letters-board/e1.jpeg", alt: "acrylic-letters-board", category: "Acrylic Signage" },
   // Canvas Printing
   { src: "/services/canvas-printing/Canvas printing with installation/e1.jpeg", alt: "Canvas Print", category: "Canvas Printing" },
   { src: "/services/canvas-printing/Canvas printing with installation/e2.jpeg", alt: "Wall Canvas Art", category: "Canvas Printing" },

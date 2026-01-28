@@ -27,7 +27,7 @@ export default function AcrylicSignagePage() {
           title={<>Premium <span className="text-gradient">Acrylic Signage Solutions</span> in Hyderabad</>}
           description="Elevate your brand with high-quality LED letters, 3D acrylic signs, name plates, and custom awards. Professional design and installation."
           trustBadgeText="Trusted for Corporate Branding"
-          heroImage="/services/acrylic-signage/Acrylic 3d letters/e1.jpeg"
+          heroImage="/services/acrylic-signage/acrylic-3d-letters/e1.jpeg"
         />
 
         {/* Quick Stats */}
