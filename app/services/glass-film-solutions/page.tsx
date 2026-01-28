@@ -10,6 +10,7 @@ import { Process } from "@/components/landing/process";
 import { Testimonials } from "@/components/landing/testimonials";
 import { Gallery } from "@/components/landing/gallery";
 import { FAQ } from "@/components/landing/faq";
+import { PremiumBrands } from "@/components/landing/premium-brands";
 import { glassFilmGalleryCategories } from "@/lib/glass-film-gallery";
 
 export const metadata: Metadata = {
@@ -30,6 +31,9 @@ export default function GlassFilmSolutionsPage() {
 
         {/* Quick Stats */}
         <QuickStats />
+
+        {/* Premium Brands */}
+        <PremiumBrands />
 
         {/* Services Grid */}
         <ServiceCategoryGrid 

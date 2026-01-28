@@ -4,21 +4,21 @@ import { Suspense } from "react";
 import { Header } from "@/components/landing/header";
 import { Hero } from "@/components/landing/hero";
 import { QuickStats } from "@/components/landing/quick-stats";
-
-import { MainServices } from "@/components/landing/main-services";
+import { ServiceCategoryGrid } from "@/components/services/service-category-grid";
 import { Process } from "@/components/landing/process";
-
 import { Testimonials } from "@/components/landing/testimonials";
-import { GalleryPreview } from "@/components/landing/gallery-preview";
+import { Gallery } from "@/components/landing/gallery";
 import { WhyChooseUs } from "@/components/landing/why-choose-us";
 import { FAQ } from "@/components/landing/faq";
 import { Contact } from "@/components/landing/contact";
 import { Footer } from "@/components/landing/footer";
 import { StickyMobileCTA } from "@/components/landing/sticky-mobile-cta";
+import { PremiumBrands } from "@/components/landing/premium-brands";
+import { glassFilmGalleryCategories } from "@/lib/glass-film-gallery";
 
-// SEO Metadata
+// SEO Metadata - Glass Film Solutions Landing Page
 export const metadata: Metadata = {
-  title: "AAC Glass Films | Premium Glass Film Services in Hyderabad, Telangana",
+  title: "AAC Glass Films | Premium Glass Film Solutions in Hyderabad, Telangana",
   description:
     "Transform your space with AAC Glass Films. Expert installation of frosted, decorative, safety, and one-way vision glass films in Hyderabad. 10+ years experience. Call 9908119150 for a free consultation.",
   keywords: [
@@ -35,6 +35,9 @@ export const metadata: Metadata = {
     "window film installation",
     "office glass film",
     "residential glass film",
+    "3D glass film",
+    "sun control film",
+    "glass writing board",
   ],
   authors: [{ name: "AAC Glass Films" }],
   creator: "AAC Glass Films",
@@ -49,12 +52,12 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://aacglassfilms.com",
     siteName: "AAC Glass Films",
-    title: "AAC Glass Films | Premium Glass Film Services in Hyderabad",
+    title: "AAC Glass Films | Premium Glass Film Solutions in Hyderabad",
     description:
       "Expert glass film installation in Hyderabad. Frosted, decorative, safety & one-way vision films for homes and offices. Call 9908119150.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/services/images/Modernofficewithfrostedpartitions.png",
         width: 1200,
         height: 630,
         alt: "AAC Glass Films - Premium Glass Film Solutions",
@@ -63,10 +66,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AAC Glass Films | Glass Film Services Hyderabad",
+    title: "AAC Glass Films | Glass Film Solutions Hyderabad",
     description:
       "Transform your space with premium glass films. Expert installation in Hyderabad & Telangana. Call 9908119150.",
-    images: ["/og-image.jpg"],
+    images: ["/services/images/Modernofficewithfrostedpartitions.png"],
   },
   robots: {
     index: true,
@@ -89,7 +92,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "AAC Glass Films",
-  image: "https://aacglassfilms.com/og-image.jpg",
+  image: "https://aacglassfilms.com/services/images/Modernofficewithfrostedpartitions.png",
   description:
     "Premium glass film installation services in Hyderabad, Telangana. Specializing in frosted, decorative, safety, and one-way vision glass films for residential and commercial spaces.",
   address: {
@@ -129,6 +132,9 @@ const jsonLd = {
     "One Way Vision Film",
     "Printed Glass Film",
     "Vinyl Glass Film",
+    "3D Glass Film",
+    "Sun Control Film",
+    "Glass Writing Board",
   ],
 };
 
@@ -144,15 +150,60 @@ export default function Home() {
       {/* Page Sections */}
       <Header />
       <main>
-        <Hero />
+        {/* Hero Section - Glass Film Specific */}
+        <section id="hero">
+          <Hero 
+            title={<>Hyderabad's Trusted Experts for <span className="text-gradient">Premium Glass Film Solutions</span></>}
+            description="From decorative window tinting to safety glass films, we help homes and businesses enhance privacy, protection, and style with expert installation."
+          />
+        </section>
+
+        {/* Quick Stats */}
         <QuickStats />
-        <MainServices />
-        <Process />
+
+        {/* Premium Brands */}
+        <PremiumBrands />
+
+        {/* Services Grid - Glass Films Only */}
+        <section id="services">
+          <ServiceCategoryGrid 
+            category="glass-film" 
+            title="Our Glass Film Solutions"
+            subtitle="Complete range of Frosted, Sparkle, Printed, 3D, Sun Control, and Safety glass films for every need."
+          />
+        </section>
+
+        {/* Process */}
+        <section id="process">
+          <Process />
+        </section>
+
+        {/* Testimonials */}
         <Testimonials />
-        <WhyChooseUs />
-        <GalleryPreview />
+
+        {/* Why Choose Us */}
+        <section id="why-us">
+          <WhyChooseUs />
+        </section>
+
+        {/* Gallery - Glass Film Projects Only */}
+        <section id="gallery">
+          <Suspense fallback={<div className="section-spacing bg-muted/30"><div className="section-container text-center py-12">Loading gallery...</div></div>}>
+            <Gallery 
+              categories={glassFilmGalleryCategories}
+              title="Our Glass Film Projects"
+              description="Browse through our completed glass film installations across Hyderabad. From offices to homes — quality you can trust."
+            />
+          </Suspense>
+        </section>
+
+        {/* FAQ */}
         <FAQ />
-        <Contact />
+
+        {/* Contact Form */}
+        <section id="contact">
+          <Contact />
+        </section>
       </main>
       <Footer />
       <StickyMobileCTA />

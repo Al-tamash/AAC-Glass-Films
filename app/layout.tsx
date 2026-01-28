@@ -94,8 +94,8 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://wa.me" />
         
         {/* Favicon */}
-        <link rel="icon" href="/AAglassfilmlogo.jpeg" type="image/jpeg" />
-        <link rel="apple-touch-icon" href="/AAglassfilmlogo.jpeg" />
+        <link rel="icon" href="/glassfilmfinallogotransparent.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/glassfilmfinallogotransparent.png" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`}

@@ -85,34 +85,62 @@ export function Process({
 
         {/* Process Steps - Horizontal on Desktop, Vertical on Mobile */}
         <div className="relative">
-          {/* Connecting line - Desktop */}
+          {/* Connecting line - Desktop (horizontal) */}
           <div className="hidden lg:block absolute top-16 left-[10%] right-[10%] h-0.5 bg-border" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-4">
+          {/* Connecting line - Mobile/Tablet (vertical) */}
+          <div className="lg:hidden absolute top-0 bottom-0 left-8 w-0.5 bg-border" />
+
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-4">
             {steps.map((step, index) => (
               <FadeIn
                 key={step.number}
                 delay={index * 0.1}
                 duration={0.4}
-                className="relative text-center"
+                className="relative lg:text-center"
               >
-                {/* Step circle with icon */}
-                <div className="relative z-10 mx-auto w-16 h-16 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  {step.icon ? <step.icon className="w-7 h-7 text-primary" /> : <Circle className="w-7 h-7 text-primary" />}
+                {/* Mobile/Tablet Layout - Left aligned with vertical line */}
+                <div className="lg:hidden flex items-start gap-6 pl-0">
+                  {/* Step circle with icon - positioned on the vertical line */}
+                  <div className="relative z-10 flex-shrink-0 w-16 h-16 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    {step.icon ? <step.icon className="w-7 h-7 text-primary" /> : <Circle className="w-7 h-7 text-primary" />}
+                    {/* Step number badge */}
+                    <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-secondary text-secondary-foreground text-xs font-bold flex items-center justify-center">
+                      {step.number}
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex-1 pt-2">
+                    <h3 className="font-semibold text-foreground mb-2">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
 
-                {/* Step number badge */}
-                <div className="absolute top-0 right-1/2 translate-x-10 -translate-y-1 w-6 h-6 rounded-full bg-secondary text-secondary-foreground text-xs font-bold flex items-center justify-center">
-                  {step.number}
-                </div>
+                {/* Desktop Layout - Center aligned with horizontal line */}
+                <div className="hidden lg:block">
+                  {/* Step circle with icon */}
+                  <div className="relative z-10 mx-auto w-16 h-16 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                    {step.icon ? <step.icon className="w-7 h-7 text-primary" /> : <Circle className="w-7 h-7 text-primary" />}
+                  </div>
 
-                {/* Content */}
-                <h3 className="font-semibold text-foreground mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {step.description}
-                </p>
+                  {/* Step number badge */}
+                  <div className="absolute top-0 right-1/2 translate-x-10 -translate-y-1 w-6 h-6 rounded-full bg-secondary text-secondary-foreground text-xs font-bold flex items-center justify-center">
+                    {step.number}
+                  </div>
+
+                  {/* Content */}
+                  <h3 className="font-semibold text-foreground mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
               </FadeIn>
             ))}
           </div>

@@ -1,27 +1,29 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, Phone, Sun, Moon, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, Sun, Moon } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "motion/react";
-import { services } from "@/lib/service-data";
 
+// Landing page anchor navigation
 const navItems = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Services", href: "/services", hasDropdown: true },
-  { name: "Our Work", href: "/our-work" },
-  { name: "Contact", href: "/contact" },
+  { name: "Home", href: "/#hero" },
+  { name: "Services", href: "/#services" },
+  { name: "Process", href: "/#process" },
+  { name: "Why Us", href: "/#why-us" },
+  { name: "Gallery", href: "/#gallery" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,6 +55,40 @@ export function Header() {
     }
   };
 
+  // Smooth scroll function
+  const scrollToSection = useCallback((targetId: string) => {
+    const element = document.getElementById(targetId);
+    
+    if (element) {
+      const headerOffset = 80; // Account for fixed header
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  }, []);
+
+  // Click handler for navigation
+  const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>, href: string) => {
+    const isHomePage = pathname === "/";
+    const targetId = href.split("#")[1];
+    
+    // Close mobile menu
+    setIsMobileMenuOpen(false);
+
+    if (isHomePage) {
+      e.preventDefault();
+      scrollToSection(targetId);
+    } else {
+      // On subpages, let the Link handle it or manually navigate
+      // If it's a relative anchor on current page, handle it, but here all are homepage-relative
+      // So we just let the default behavior (Link/a) take us to "/#target"
+    }
+  }, [pathname, scrollToSection]);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -62,89 +98,35 @@ export function Header() {
       }`}
     >
       <nav className="section-container">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-20 md:h-28">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-lg overflow-hidden">
+          <Link 
+            href="/#hero"
+            onClick={(e) => handleNavClick(e, "/#hero")}
+            className="flex items-center cursor-pointer -ml-4 md:ml-0"
+          >
+            <div className="relative w-[220px] h-[80px] md:w-[320px] md:h-[110px]">
               <Image
-                src="/AAglassfilmlogo.jpeg"
+                src={isDark ? "/glassfilmfinallogotransparent1.png" : "/glassfilmlogolighttheme.png"}
                 alt="AAC Glass Films Logo"
                 fill
-                className="object-cover"
+                className="object-contain object-left"
                 priority
               />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-bold text-lg text-foreground">AAC Glass Films</span>
-              <span className="text-xs text-muted-foreground hidden sm:block">
-                Premium Glass Solutions
-              </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              item.hasDropdown ? (
-                <div
-                  key={item.name}
-                  className="relative"
-                  onMouseEnter={() => setIsServicesOpen(true)}
-                  onMouseLeave={() => setIsServicesOpen(false)}
-                >
-                  <Link
-                    href={item.href}
-                    className="text-foreground/80 hover:text-primary transition-colors font-medium flex items-center gap-1"
-                  >
-                    {item.name}
-                    <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
-                  </Link>
-                  
-                  {/* Dropdown Menu */}
-                  <AnimatePresence>
-                    {isServicesOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 10 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 mt-2 w-72 bg-background border border-border rounded-xl shadow-xl overflow-hidden"
-                      >
-                        <div className="py-2">
-                          <Link 
-                            href="/services/glass-film-solutions"
-                            className="block px-4 py-2 text-sm font-semibold text-primary hover:bg-muted transition-colors"
-                          >
-                            Glass Film Solutions
-                          </Link>
-                          
-                          {/* Future Services Placeholders */}
-                          <Link 
-                            href="/services/acrylic-signage"
-                            className="block px-4 py-2 text-sm font-semibold text-foreground hover:bg-muted transition-colors"
-                          >
-                            Acrylic Signage
-                          </Link>
-                          <Link 
-                            href="/services/canvas-printing"
-                            className="block px-4 py-2 text-sm font-semibold text-foreground hover:bg-muted transition-colors"
-                          >
-                            Canvas Printing
-                          </Link>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ) : (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-foreground/80 hover:text-primary transition-colors font-medium"
-                >
-                  {item.name}
-                </Link>
-              )
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="text-foreground/80 hover:text-primary transition-colors font-medium cursor-pointer"
+              >
+                {item.name}
+              </Link>
             ))}
           </div>
 
@@ -204,72 +186,14 @@ export function Header() {
             >
               <div className="py-4 space-y-2">
                 {navItems.map((item) => (
-                  item.hasDropdown ? (
-                    <div key={item.name}>
-                      <button
-                        onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-                        className="w-full flex items-center justify-between px-4 py-3 text-foreground hover:bg-muted rounded-lg transition-colors"
-                      >
-                        <span>{item.name}</span>
-                        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
-                      </button>
-                      <AnimatePresence>
-                        {isMobileServicesOpen && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            className="overflow-hidden"
-                          >
-                            <div className="pl-4 py-2 space-y-1">
-                              <Link
-                                href="/services/glass-film-solutions"
-                                className="block px-4 py-2 text-xs font-semibold text-primary uppercase tracking-wider hover:bg-muted transition-colors"
-                                onClick={() => {
-                                  setIsMobileMenuOpen(false);
-                                  setIsMobileServicesOpen(false);
-                                }}
-                              >
-                                Glass Film Solutions
-                              </Link>
-                              
-                              {/* Future Services Placeholders */}
-                              <Link
-                                href="/services/acrylic-signage"
-                                className="block px-4 py-2 text-xs font-semibold text-foreground uppercase tracking-wider hover:bg-muted transition-colors"
-                                onClick={() => {
-                                  setIsMobileMenuOpen(false);
-                                  setIsMobileServicesOpen(false);
-                                }}
-                              >
-                                Acrylic Signage
-                              </Link>
-                              <Link
-                                href="/services/canvas-printing"
-                                className="block px-4 py-2 text-xs font-semibold text-foreground uppercase tracking-wider hover:bg-muted transition-colors"
-                                onClick={() => {
-                                  setIsMobileMenuOpen(false);
-                                  setIsMobileServicesOpen(false);
-                                }}
-                              >
-                                Canvas Printing
-                              </Link>
-                              {/* Individual service links removed */}
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  ) : (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className="block px-4 py-3 text-foreground hover:bg-muted rounded-lg transition-colors"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
-                  )
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item.href)}
+                    className="block w-full text-left px-4 py-3 text-foreground hover:bg-muted rounded-lg transition-colors cursor-pointer"
+                  >
+                    {item.name}
+                  </Link>
                 ))}
                 <div className="px-4 pt-2">
                   <Button

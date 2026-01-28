@@ -1,44 +1,81 @@
-import Link from "next/link";
-import Image from "next/image";
-import { Phone, Mail, MapPin } from "lucide-react";
+"use client";
 
+import Image from "next/image";
+import Link from "next/link";
+import { Phone, Mail, MapPin } from "lucide-react";
+import { usePathname } from "next/navigation";
+
+// Landing page anchor links for Quick Links
 const quickLinks = [
-  { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
-  { name: "About Us", href: "/about" },
-  { name: "Contact", href: "/contact" },
+  { name: "Home", href: "/#hero" },
+  { name: "Services", href: "/#services" },
+  { name: "Gallery", href: "/#gallery" },
+  { name: "Contact", href: "/#contact" },
 ];
 
-const services = [
-  { name: "Frosted Glass Film", href: "/services/plain-frosted-glass-film" },
-  { name: "Sparkle Glass Film", href: "/services/sparkle-glass-film" },
-  { name: "Printed Glass Film", href: "/services/printed-glass-film" },
-  { name: "Safety Glass Film", href: "/services/safety-glass-film" },
-  { name: "One Way Vision Film", href: "/services/one-way-vision-glass-film" },
-  { name: "Decorative Tinting", href: "/services/decorative-window-tinting" },
+// Service categories - scroll to services section
+const servicesItems = [
+  { name: "Frosted Glass Film", href: "/#services" },
+  { name: "Sparkle Glass Film", href: "/#services" },
+  { name: "Printed Glass Film", href: "/#services" },
+  { name: "Safety Glass Film", href: "/#services" },
+  { name: "One Way Vision Film", href: "/#services" },
+  { name: "3D Glass Film", href: "/#services" },
 ];
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const pathname = usePathname();
+
+  // Smooth scroll handler
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    const isHomePage = pathname === "/";
+    const targetId = href.split("#")[1];
+    
+    if (isHomePage) {
+      e.preventDefault();
+      const element = document.getElementById(targetId);
+      
+      if (element) {
+        const headerOffset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+    }
+  };
 
   return (
-    <footer className="dark bg-background text-foreground border-t border-border">
+    <footer className="bg-background text-foreground border-t border-border">
       <div className="section-container py-12 md:py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-3 mb-4">
-              <div className="relative w-12 h-12 rounded-lg overflow-hidden bg-card p-1">
+            <Link 
+              href="/#hero" 
+              onClick={(e) => handleNavClick(e, "/#hero")}
+              className="flex items-center mb-6 cursor-pointer -ml-4 md:ml-0"
+            >
+              <div className="relative w-[240px] h-[90px] md:w-[350px] md:h-[120px]">
+                {/* Dark mode logo */}
                 <Image
-                  src="/AAglassfilmlogo.jpeg"
-                  alt="AAC Glass Films Logo"
+                  src="/glassfilmfinallogotransparent1.png"
+                  alt="AAC Glass Films Logo (Dark)"
                   fill
-                  className="object-contain"
+                  className="object-contain object-left hidden dark:block"
+                />
+                {/* Light mode logo */}
+                <Image
+                  src="/glassfilmlogolighttheme.png"
+                  alt="AAC Glass Films Logo (Light)"
+                  fill
+                  className="object-contain object-left block dark:hidden"
                 />
               </div>
-              <span className="font-bold text-xl text-foreground">
-                AAC Glass Films
-              </span>
             </Link>
             <p className="text-muted-foreground text-sm mb-4">
               Your trusted partner for premium glass film solutions in Hyderabad 
@@ -56,7 +93,8 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-muted-foreground hover:text-secondary transition-colors text-sm"
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="text-muted-foreground hover:text-secondary transition-colors text-sm cursor-pointer"
                   >
                     {link.name}
                   </Link>
@@ -71,11 +109,12 @@ export function Footer() {
               Our Services
             </h3>
             <ul className="space-y-2">
-              {services.map((service) => (
+              {servicesItems.map((service) => (
                 <li key={service.name}>
                   <Link
                     href={service.href}
-                    className="text-muted-foreground hover:text-secondary transition-colors text-sm"
+                    onClick={(e) => handleNavClick(e, service.href)}
+                    className="text-muted-foreground hover:text-secondary transition-colors text-sm cursor-pointer"
                   >
                     {service.name}
                   </Link>
@@ -120,12 +159,9 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 pb-16 md:pb-0 border-t border-border">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+          <div className="flex flex-col items-center gap-4 text-sm text-muted-foreground text-center">
             <p>
               © {currentYear} AAC Glass Films. All rights reserved.
-            </p>
-            <p>
-              Glass film services in Hyderabad, Telangana
             </p>
           </div>
         </div>
