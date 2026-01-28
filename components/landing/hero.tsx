@@ -24,7 +24,7 @@ export function Hero({
   return (
     <section
       id="home"
-      className="relative min-h-[calc(100vh-64px)] md:min-h-[calc(100vh-80px)] flex items-center pt-16 md:pt-12 pb-6 overflow-hidden"
+      className="relative min-h-[calc(100vh-64px)] md:min-h-[calc(100vh-80px)] flex items-center pt-32 md:pt-40 pb-12 overflow-hidden"
     >
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-accent/10" />
