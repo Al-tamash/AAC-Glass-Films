@@ -161,8 +161,6 @@ export default function Home() {
         {/* Quick Stats */}
         <QuickStats />
 
-        {/* Premium Brands */}
-        <PremiumBrands />
 
         {/* Services Grid - Glass Films Only */}
         <section id="services">
@@ -172,6 +170,9 @@ export default function Home() {
             subtitle="Complete range of Frosted, Sparkle, Printed, 3D, Sun Control, and Safety glass films for every need."
           />
         </section>
+
+        {/* Premium Brands */}
+        <PremiumBrands />
 
         {/* Process */}
         <section id="process">

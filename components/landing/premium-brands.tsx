@@ -1,7 +1,7 @@
 "use client";
 
 import { FadeIn, ScaleIn } from "@/components/landing/anim-wrapper";
-import { ShieldCheck } from "lucide-react";
+import { ShieldCheck, CheckCircle2, BadgeCheck, Zap } from "lucide-react";
 
 const brands = [
   { 
@@ -33,18 +33,24 @@ const brands = [
 
 export function PremiumBrands() {
   return (
-    <section className="py-12 md:py-16 bg-gradient-to-b from-background to-muted/20 overflow-hidden">
-      <div className="section-container">
+    <section className="py-20 md:py-28 bg-background relative overflow-hidden">
+      {/* Background Gradient Spotlights */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
+      
+      <div className="section-container relative z-10">
         {/* Section Header */}
-        <FadeIn className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+        <FadeIn className="text-center mb-16 md:mb-24 space-y-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4 mx-auto border border-primary/20">
             <ShieldCheck className="w-4 h-4" />
             <span>Trusted Glass Film Installation Experts</span>
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
+          
+          
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground max-w-4xl mx-auto mb-6">
             Premium Glass Film Brands We Work With
           </h2>
-          <div className="text-muted-foreground text-lg max-w-3xl mx-auto space-y-2">
+          
+          <div className="text-muted-foreground text-lg md:text-xl max-w-4xl mx-auto leading-relaxed font-medium space-y-2">
             <p>
               We work with carefully selected, high-quality glass film brands to deliver the best in durability, performance, aesthetics, and long-term satisfaction.
             </p>
@@ -54,55 +60,36 @@ export function PremiumBrands() {
           </div>
         </FadeIn>
 
-        {/* Brands Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        {/* Interactive Spotlight Row */}
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12 items-center justify-center">
           {brands.map((brand, index) => (
             <ScaleIn
               key={brand.name}
               delay={index * 0.1}
-              className="group relative"
+              className="group relative flex flex-col items-center text-center focus:outline-none"
             >
-              <div className="flex flex-col p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 h-full group-hover:-translate-y-1">
-                {/* Decorative Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
-                
-                {/* Brand Name */}
-                <span className="text-3xl md:text-4xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/60 group-hover:from-primary group-hover:to-primary/70 transition-all duration-500 mb-3">
+              {/* Brand Logo/Name Area */}
+              <div className="relative z-10 py-6 px-4 w-full group-hover:-translate-y-2 transition-transform duration-500">
+                {/* Tooltip Reveal on Hover (Above) */}
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-[200px] md:w-64 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 pointer-events-none z-20">
+                   <div className="bg-popover/95 backdrop-blur-sm text-popover-foreground text-xs p-3 rounded-lg shadow-xl border border-border relative text-center">
+                     <p className="font-medium leading-relaxed">
+                      {brand.description}
+                     </p>
+                     {/* Tooltip Arrow */}
+                     <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-popover/95 border-b border-r border-border transform rotate-45"></div>
+                   </div>
+                </div>
+
+                {/* Brand Name Text */}
+                <span className="text-4xl md:text-5xl font-black tracking-tighter text-muted-foreground/30 group-hover:text-foreground transition-all duration-500 grayscale group-hover:grayscale-0 filter cursor-default block">
                   {brand.name}
                 </span>
-                
-                {/* Brand Tagline */}
-                <h3 className="text-sm font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                  {brand.tagline}
-                </h3>
-
-                {/* Brand Description */}
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  {brand.description}
-                </p>
-
-                {/* Corner Accent */}
-                <div className="absolute top-3 right-3 w-6 h-6 border-t-2 border-r-2 border-primary/20 rounded-tr-md group-hover:border-primary/50 transition-all duration-500" />
               </div>
             </ScaleIn>
           ))}
         </div>
 
-        {/* Trust Points */}
-        <FadeIn delay={0.4} className="mt-12 flex flex-wrap justify-center gap-6 md:gap-12">
-          <div className="flex items-center gap-2 text-sm font-semibold text-foreground/80">
-            <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-primary text-[10px]">✔</div>
-            100% Genuine Products
-          </div>
-          <div className="flex items-center gap-2 text-sm font-semibold text-foreground/80">
-            <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-primary text-[10px]">✔</div>
-            Professional Installation
-          </div>
-          <div className="flex items-center gap-2 text-sm font-semibold text-foreground/80">
-            <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-primary text-[10px]">✔</div>
-            Quality & Service Assurance
-          </div>
-        </FadeIn>
       </div>
     </section>
   );
