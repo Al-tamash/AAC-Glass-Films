@@ -122,7 +122,6 @@ export const glassFilmFaqs = [
 ];
 
 export const glassFilmServiceOptions = [
-  "Select a service",
   "Frosted Glass Film",
   "Sun Control Film",
   "Decorative Window Tinting",
