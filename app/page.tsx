@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
+
 import { Header } from "@/components/landing/header";
 import { Hero } from "@/components/landing/hero";
 import { QuickStats } from "@/components/landing/quick-stats";
@@ -138,6 +139,15 @@ const jsonLd = {
   ],
 };
 
+import { 
+  glassFilmProcessSteps, 
+  glassFilmTestimonials, 
+  glassFilmBenefits, 
+  glassFilmHighlights, 
+  glassFilmFaqs, 
+  glassFilmServiceOptions 
+} from "@/lib/glass-film-data";
+
 export default function Home() {
   return (
     <>
@@ -176,15 +186,27 @@ export default function Home() {
 
         {/* Process */}
         <section id="process">
-          <Process />
+          <Process 
+            title="Our Glass Film Installation Process"
+            description="From consultation to final check, we ensure a smooth and professional experience."
+            steps={glassFilmProcessSteps}
+          />
         </section>
 
         {/* Testimonials */}
-        <Testimonials />
+        <Testimonials 
+          title="What Our Glass Film Customers Say"
+          items={glassFilmTestimonials}
+        />
 
         {/* Why Choose Us */}
         <section id="why-us">
-          <WhyChooseUs />
+          <WhyChooseUs 
+            title="Why Choose AAC Glass Films?"
+            description="When you choose AAC Glass Films, you're choosing quality, reliability, and a team that genuinely cares about transforming your space with premium glass film solutions."
+            benefits={glassFilmBenefits} 
+            highlights={glassFilmHighlights}
+          />
         </section>
 
         {/* Gallery - Glass Film Projects Only */}
@@ -199,11 +221,15 @@ export default function Home() {
         </section>
 
         {/* FAQ */}
-        <FAQ />
+        <FAQ 
+          title="Frequently Asked Questions about Glass Films"
+          description="Common questions about our glass film services and installation."
+          items={glassFilmFaqs}
+        />
 
         {/* Contact Form */}
         <section id="contact">
-          <Contact />
+          <Contact serviceOptions={glassFilmServiceOptions} />
         </section>
       </main>
       <Footer />

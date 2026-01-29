@@ -90,7 +90,7 @@ export const glassFilmGalleryCategories = [
     id: "decorative",
     name: "Window Tinting",
     media: [
-      { type: "image" as const, src: "/services/decorative-window-tinting/images/dwt1.png", alt: "Decorative Window Tinting", caption: "Elegant Window Tint" },
+      { type: "image" as const, src: "/services/images/window-tinting-service-img.png", alt: "Decorative Window Tinting", caption: "Elegant Window Tint" },
     ],
   },
   {

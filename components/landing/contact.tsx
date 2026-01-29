@@ -33,7 +33,7 @@ const contactInfo = [
   },
 ];
 
-const serviceOptions = [
+const defaultServiceOptions = [
   "--- Glass Film Solutions ---",
   "Frosted Glass Film",
   "Sparkle Glass Film",
@@ -56,7 +56,13 @@ const serviceOptions = [
   "Other Enquiry",
 ];
 
-export function Contact() {
+interface ContactProps {
+  serviceOptions?: string[];
+}
+
+export function Contact({ 
+  serviceOptions = defaultServiceOptions 
+}: ContactProps) {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",

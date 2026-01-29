@@ -1,7 +1,7 @@
 import { FadeIn, ScaleIn } from "@/components/landing/anim-wrapper";
 import { Check, Star } from "lucide-react";
 
-const benefits = [
+const defaultBenefits = [
   {
     title: "Expert Installation Team",
     description:
@@ -34,14 +34,31 @@ const benefits = [
   },
 ];
 
-const highlights = [
+const defaultHighlights = [
   "15+ Years of Experience",
   "1000+ Successful Projects",
   "Serving All of Telangana",
   "Residential & Commercial",
 ];
 
-export function WhyChooseUs() {
+interface Benefit {
+  title: string;
+  description: string;
+}
+
+interface WhyChooseUsProps {
+  benefits?: Benefit[];
+  highlights?: string[];
+  title?: string;
+  description?: string;
+}
+
+export function WhyChooseUs({ 
+  benefits = defaultBenefits, 
+  highlights = defaultHighlights,
+  title = "Why AAC Glass Films is the Right Choice for You",
+  description = "When you choose AAC Glass Films, you're choosing quality, reliability, and a team that genuinely cares about transforming your space — whether it's glass films, acrylic signage, or canvas printing."
+}: WhyChooseUsProps) {
   return (
     <section className="section-spacing bg-muted/30">
       <div className="section-container">
@@ -52,12 +69,10 @@ export function WhyChooseUs() {
               Why Choose Us
             </span>
             <h2 className="mt-3 mb-6">
-              Why AAC Glass Films is the Right Choice for You
+              {title}
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
-              When you choose AAC Glass Films, you're choosing quality, reliability, 
-              and a team that genuinely cares about transforming your space — whether it's 
-              glass films, acrylic signage, or canvas printing.
+              {description}
             </p>
 
             {/* Highlights */}

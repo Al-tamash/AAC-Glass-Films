@@ -353,11 +353,7 @@ export function Gallery({
                 </div>
 
                 {/* Caption */}
-                <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-foreground/80 to-transparent translate-y-full group-hover:translate-y-0 transition-transform">
-                  <p className="text-primary-foreground text-sm font-medium">
-                    {item.caption}
-                  </p>
-                </div>
+
               </motion.div>
             ))}
           </AnimatePresence>
@@ -398,20 +394,7 @@ export function Gallery({
         )}
 
         {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-center mt-10"
-        >
-          <p className="text-muted-foreground mb-4">
-            Want to see your space transformed like these?
-          </p>
-          <Button asChild className="bg-secondary hover:bg-secondary/90 text-secondary-foreground">
-            <a href="tel:9908119150">Get a Free Consultation</a>
-          </Button>
-        </motion.div>
+
       </div>
 
       {/* Lightbox Modal */}
@@ -502,9 +485,7 @@ export function Gallery({
               )}
 
               {/* Caption */}
-              <p className="text-center text-primary-foreground mt-4 text-lg">
-                {currentMedia[lightboxIndex].caption}
-              </p>
+
               <p className="text-center text-primary-foreground/60 mt-1 text-sm">
                 {lightboxIndex + 1} / {currentMedia.length}
               </p>

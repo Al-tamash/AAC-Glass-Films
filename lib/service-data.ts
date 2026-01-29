@@ -497,7 +497,7 @@ export const services: Service[] = [
     shortDescription: "Keeps interiors cooler while enhancing appearance.",
     description:
       "Decorative window tinting combines functionality with aesthetics. These films reduce heat and glare while adding a decorative element to your windows. Perfect for creating comfortable interior environments with style.",
-    image: "/services/images/Shatteredandintactofficeglasspartitions.png",
+    image: "/services/images/window-tinting-service-img.png",
     features: [
       "Heat rejection technology",
       "Glare reduction",

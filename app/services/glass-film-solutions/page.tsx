@@ -11,7 +11,16 @@ import { Testimonials } from "@/components/landing/testimonials";
 import { Gallery } from "@/components/landing/gallery";
 import { FAQ } from "@/components/landing/faq";
 import { PremiumBrands } from "@/components/landing/premium-brands";
+import { WhyChooseUs } from "@/components/landing/why-choose-us";
 import { glassFilmGalleryCategories } from "@/lib/glass-film-gallery";
+import { 
+  glassFilmProcessSteps, 
+  glassFilmTestimonials, 
+  glassFilmBenefits,
+  glassFilmHighlights,
+  glassFilmFaqs, 
+  glassFilmServiceOptions 
+} from "@/lib/glass-film-data";
 
 export const metadata: Metadata = {
   title: "Glass Film Solutions | AAC Glass Films Hyderabad",
@@ -43,10 +52,17 @@ export default function GlassFilmSolutionsPage() {
         />
         
         {/* Process */}
-        <Process />
+        <Process 
+          title="Our Installation Process"
+          description="From consultation to final check, we ensure a smooth and professional experience."
+          steps={glassFilmProcessSteps}
+        />
         
         {/* Testimonials */}
-        <Testimonials />
+        <Testimonials 
+          title="What Our Customers Say"
+          items={glassFilmTestimonials}
+        />
         
         {/* Gallery - Glass Film Projects Only */}
         <Suspense fallback={<div className="section-spacing bg-muted/30"><div className="section-container text-center py-12">Loading gallery...</div></div>}>
@@ -56,12 +72,23 @@ export default function GlassFilmSolutionsPage() {
             description="Browse through our completed glass film installations across Hyderabad. From offices to homes — quality you can trust."
           />
         </Suspense>
+
+        {/* Why Choose Us */}
+        <WhyChooseUs 
+          title="Why Choose AAC Glass Films?"
+          description="When you choose AAC Glass Films, you're choosing quality, reliability, and a team that genuinely cares about transforming your space with premium glass film solutions."
+          benefits={glassFilmBenefits} 
+          highlights={glassFilmHighlights}
+        />
         
         {/* FAQ */}
-        <FAQ />
+        <FAQ 
+          title="Frequently Asked Questions"
+          items={glassFilmFaqs}
+        />
         
         {/* Contact Form */}
-        <Contact />
+        <Contact serviceOptions={glassFilmServiceOptions} />
       </main>
       <Footer />
     </>
