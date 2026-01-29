@@ -105,7 +105,7 @@ export function Header() {
             onClick={(e) => handleNavClick(e, "/#hero")}
             className="flex items-center cursor-pointer -ml-4 md:ml-0"
           >
-            <div className="relative w-[220px] h-[80px] md:w-[320px] md:h-[110px]">
+            <div className={`relative ${isDark ? "w-[260px] h-[95px] md:w-[380px] md:h-[130px]" : "w-[220px] h-[80px] md:w-[320px] md:h-[110px]"}`}>
               <Image
                 src={isDark ? "/glassfilmfinallogotransparent1.png" : "/glassfilmlogolighttheme.png"}
                 alt="AAC Glass Films Logo"

@@ -562,7 +562,7 @@ export const services: Service[] = [
     tagline: "Adds depth and texture to glass surfaces.",
     shortDescription: "Create stunning 3D visual effects on any glass surface.",
     description: "3D glass film introduces a new dimension to your glass surfaces. These films create fascinating visual depth and texture, making them perfect for feature walls, partitions, and areas where you want to make a bold design statement.",
-    image: "/services/3d glass film/e1.jpeg",
+    image: "/services/images/3D-Glass-Film.png",
     features: [
       "Visual depth effect",
       "Textured surface options",
@@ -605,7 +605,7 @@ export const services: Service[] = [
     tagline: "Superior heat rejection and UV protection.",
     shortDescription: "Advanced films to block heat and damaging UV rays.",
     description: "Sun control film is engineered to improve energy efficiency and comfort. By blocking a significant amount of solar heat and UV radiation, these films reduce cooling costs, prevent furniture fading, and create a more comfortable indoor environment.",
-    image: "/services/sun control film for glass window/WhatsApp Image 2026-01-13 at 1.57.31 PM.jpeg",
+    image: "/services/images/Sun-Control-Film.png",
     features: [
       "High heat rejection",
       "UV blocking (99%)",
@@ -647,7 +647,7 @@ export const services: Service[] = [
     tagline: "Modern alternative to traditional whiteboards.",
     shortDescription: "Sleek glass boards for offices and meeting rooms.",
     description: "Glass writing boards offer a modern, elegant alternative to traditional whiteboards. Made from tempered glass, they are durable, easy to clean, and never stain or ghost. Perfect for offices, meeting rooms, and educational spaces.",
-    image: "/services/glass-writing-board/e5.jpeg",
+    image: "/services/images/Glass-Writing-Board.png",
     features: [
       "Tempered safety glass",
       "Ghost-free surface",
