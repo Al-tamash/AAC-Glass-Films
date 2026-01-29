@@ -103,26 +103,7 @@ export function Hero({
               </Button>
             </motion.div>
 
-            {/* Trust indicators */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-5 md:mt-6 flex flex-wrap justify-center lg:justify-start gap-4 md:gap-6 text-xs md:text-sm text-muted-foreground"
-            >
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-success" />
-                <span>Same-Day Installation</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-success" />
-                <span>15+ Years Experience</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-success" />
-                <span>No Hidden Charges</span>
-              </div>
-            </motion.div>
+
           </div>
 
           {/* Right: Video or Image */}
@@ -164,26 +145,7 @@ export function Hero({
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 0.5 }}
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 hidden lg:flex"
-      >
-        <Link
-          href="#services"
-          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-        >
-          <span className="text-sm">Explore Services</span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
-          >
-            <ArrowRight className="w-5 h-5 rotate-90" />
-          </motion.div>
-        </Link>
-      </motion.div>
+
     </section>
   );
 }
