@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, Instagram, Youtube, Facebook } from "lucide-react";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 
@@ -31,6 +31,12 @@ const contactInfo = [
     value: "Mon - Sat: 9:00 AM - 7:00 PM",
     href: null,
   },
+];
+
+const socialLinks = [
+  { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/aaconceptz_" },
+  { name: "YouTube", icon: Youtube, href: "https://youtube.com/@aacglassfilms" },
+  { name: "Facebook", icon: Facebook, href: "https://www.facebook.com/share/1Dh2Tdt4nh/" },
 ];
 
 const defaultServiceOptions = [
@@ -280,6 +286,38 @@ export function Contact({
                 )}
               </motion.div>
             ))}
+
+            {/* Follow Us - Social Links */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: 0.4 }}
+              className="flex gap-4 p-4 rounded-xl bg-card border border-border"
+            >
+              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                <Instagram className="w-5 h-5 text-primary" />
+              </div>
+              <div className="flex-1">
+                <div className="text-xs text-muted-foreground mb-1.5">
+                  Follow Us
+                </div>
+                <div className="flex items-center gap-2">
+                  {socialLinks.map((social) => (
+                    <Link
+                      key={social.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-8 h-8 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-secondary hover:text-secondary-foreground transition-colors"
+                      aria-label={social.name}
+                    >
+                      <social.icon className="w-4 h-4" />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
 
             {/* Google Map */}
             <motion.div

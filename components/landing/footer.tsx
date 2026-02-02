@@ -2,7 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram, Youtube, Facebook } from "lucide-react";
+
+const socialLinks = [
+  { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/aaconceptz_" },
+  { name: "YouTube", icon: Youtube, href: "https://youtube.com/@aacglassfilms" },
+  { name: "Facebook", icon: Facebook, href: "https://www.facebook.com/share/1Dh2Tdt4nh/" },
+];
 import { usePathname } from "next/navigation";
 
 // Landing page anchor links for Quick Links
@@ -81,6 +87,21 @@ export function Footer() {
               Your trusted partner for premium glass film solutions in Hyderabad 
               and across Telangana. Quality installation, lasting results.
             </p>
+            {/* Social Links */}
+            <div className="flex items-center gap-3">
+              {socialLinks.map((social) => (
+                <Link
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-secondary hover:text-secondary-foreground transition-colors"
+                  aria-label={social.name}
+                >
+                  <social.icon className="w-4 h-4" />
+                </Link>
+              ))}
+            </div>
           </div>
 
           {/* Quick Links */}
