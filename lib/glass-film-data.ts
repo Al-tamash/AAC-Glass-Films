@@ -131,6 +131,7 @@ export const glassFilmServiceOptions = [
   "Printed Glass Film",
   "Colour Glass Film",
   "3D Glass Film",
+  "Glass Mirror Film",
   "Glass Writing Board",
   "Other Enquiry",
 ];

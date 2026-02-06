@@ -497,7 +497,7 @@ export const services: Service[] = [
     shortDescription: "Keeps interiors cooler while enhancing appearance.",
     description:
       "Decorative window tinting combines functionality with aesthetics. These films reduce heat and glare while adding a decorative element to your windows. Perfect for creating comfortable interior environments with style.",
-    image: "/services/images/window-tinting-service-img.png",
+    image: "/services/images/windowtintinglivingroomimg.png",
     features: [
       "Heat rejection technology",
       "Glare reduction",
@@ -636,6 +636,59 @@ export const services: Service[] = [
       {
         question: "Will sun control film make my room dark?",
         answer: "Not necessarily. We offer spectrally selective films that block heat while letting in plenty of natural light. You can choose the level of tint that suits your needs.",
+      },
+    ],
+  },
+  {
+    slug: "glass-mirror-film",
+    category: "glass-film",
+    galleryCategory: "mirror",
+    title: "Glass Mirror Film",
+    tagline: "Elegant mirror finish for glass surfaces.",
+    shortDescription: "Transform any glass into a reflective mirror surface.",
+    description: "Glass mirror film provides a sophisticated mirror-like finish to any glass surface. Ideal for creating the appearance of real mirrors at a fraction of the cost, these films are perfect for decorative applications, retail displays, and spaces where you want to add depth and elegance.",
+    image: "/services/images/glass-mirror-film-img.png",
+    features: [
+      "Highly reflective surface",
+      "One-way mirror options",
+      "Scratch-resistant coating",
+      "UV protection",
+      "Easy application and removal",
+    ],
+    benefits: [
+      "Cost-effective mirror alternative",
+      "Lightweight solution",
+      "Adds depth to spaces",
+      "Privacy with style",
+      "Professional finish",
+    ],
+    applications: [
+      "Retail displays",
+      "Gyms and dance studios",
+      "Salons and spas",
+      "Interior decoration",
+      "Commercial spaces",
+    ],
+    applicationIcons: ["Store", "Dumbbell", "Sparkles", "Home", "Building2"],
+    gallery: [
+      "/services/glass-mirror-film/e1.jpeg",
+    ],
+    faqs: [
+      {
+        question: "Is mirror film as reflective as a real mirror?",
+        answer: "Our premium mirror films provide up to 95% reflectivity, making them nearly indistinguishable from real mirrors in most applications.",
+      },
+      {
+        question: "Can mirror film be applied to any glass surface?",
+        answer: "Yes, mirror film can be applied to most flat glass surfaces including windows, doors, partitions, and glass panels. We assess your specific glass during the site visit.",
+      },
+      {
+        question: "Does mirror film provide privacy?",
+        answer: "Yes, mirror film offers excellent daytime privacy. From outside, the glass appears as a mirror while you can see through from the inside. Note that at night, visibility may reverse when interior lights are on.",
+      },
+      {
+        question: "How durable is mirror film?",
+        answer: "Our mirror films are designed for long-term use with scratch-resistant coatings. With proper care, they can last 10-15 years without losing their reflective quality.",
       },
     ],
   },

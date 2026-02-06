@@ -90,7 +90,7 @@ export const glassFilmGalleryCategories = [
     id: "decorative",
     name: "Window Tinting",
     media: [
-      { type: "image" as const, src: "/services/images/window-tinting-service-img.png", alt: "Decorative Window Tinting", caption: "Elegant Window Tint" },
+      { type: "image", src: "/services/images/windowtintinglivingroomimg.png", alt: "Decorative Window Tinting", caption: "Elegant Window Tint" },
     ],
   },
   {
@@ -108,6 +108,13 @@ export const glassFilmGalleryCategories = [
     media: [
       { type: "image" as const, src: "/services/sun control film for glass window/WhatsApp Image 2026-01-13 at 1.57.31 PM.jpeg", alt: "Sun Control Film", caption: "Heat Reduction Film" },
       { type: "image" as const, src: "/services/sun control film for glass window/WhatsApp Image 2026-01-13 at 1.57.32 PM.jpeg", alt: "Heat Reduction Film", caption: "UV Protection Film" },
+    ],
+  },
+  {
+    id: "mirror",
+    name: "Glass Mirror Film",
+    media: [
+      { type: "image", src: "/services/images/glass-mirror-film-img.png", alt: "Glass Mirror Film", caption: "Reflective Mirror Finish" },
     ],
   },
   {

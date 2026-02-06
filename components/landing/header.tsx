@@ -76,18 +76,25 @@ export function Header() {
     const isHomePage = pathname === "/";
     const targetId = href.split("#")[1];
     
-    // Close mobile menu
-    setIsMobileMenuOpen(false);
+    // Close mobile menu first
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+      // If mobile menu was open, wait for it to close/animate before scrolling
+      // derived from animation duration or estimated layout shift time
+      if (isHomePage) {
+        e.preventDefault();
+        setTimeout(() => {
+          scrollToSection(targetId);
+        }, 300); // 300ms matches typical transition duration
+      }
+      return;
+    }
 
     if (isHomePage) {
       e.preventDefault();
       scrollToSection(targetId);
-    } else {
-      // On subpages, let the Link handle it or manually navigate
-      // If it's a relative anchor on current page, handle it, but here all are homepage-relative
-      // So we just let the default behavior (Link/a) take us to "/#target"
-    }
-  }, [pathname, scrollToSection]);
+    } 
+  }, [pathname, scrollToSection, isMobileMenuOpen]);
 
   return (
     <header
@@ -137,7 +144,7 @@ export function Header() {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="rounded-full"
+              className="rounded-full w-10 h-10 md:w-10 md:h-10"
               aria-label="Toggle theme"
             >
               {isDark ? (
@@ -162,14 +169,14 @@ export function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden"
+              className="md:hidden w-12 h-12"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
-                <X className="h-8 w-8" />
+                <X className="h-10 w-10" />
               ) : (
-                <Menu className="h-8 w-8" />
+                <Menu className="h-10 w-10" />
               )}
             </Button>
           </div>

@@ -184,6 +184,17 @@ export function Footer() {
             <p>
               © {currentYear} AAC Glass Films. All rights reserved.
             </p>
+            <p className="text-xs">
+              Designed & Developed by{" "}
+              <Link
+                href="https://www.edonesolution.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-secondary hover:underline font-medium"
+              >
+                Edone Solution
+              </Link>
+            </p>
           </div>
         </div>
       </div>
