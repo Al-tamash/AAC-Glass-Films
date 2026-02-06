@@ -171,7 +171,7 @@ export function Footer() {
               <li className="flex items-start gap-2 text-muted-foreground text-sm">
                 <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
                 <span>
-                  8-2-334/25, Rd Number 3, Green Valley, Banjara Hills, Hyderabad, Telangana – 500034
+                  Rd Number 3, Green Valley, Banjara Hills, Hyderabad, Telangana – 500034
                 </span>
               </li>
             </ul>
