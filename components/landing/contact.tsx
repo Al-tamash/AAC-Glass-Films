@@ -28,7 +28,7 @@ const contactInfo = [
   {
     icon: Clock,
     label: "Working Hours",
-    value: "Mon - Sat: 9:00 AM - 7:00 PM",
+    value: "24 Hours",
     href: null,
   },
 ];
