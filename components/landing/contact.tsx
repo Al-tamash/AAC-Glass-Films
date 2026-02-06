@@ -22,7 +22,7 @@ const contactInfo = [
   {
     icon: MapPin,
     label: "Address",
-    value: "8-2-334/25, Rd Number 3, Green Valley, Banjara Hills, Hyderabad, Telangana – 500034",
+    value: "Rd Number 3, Green Valley, Banjara Hills, Hyderabad, Telangana – 500034",
     href: "https://maps.app.goo.gl/V5m5eCN2oB9cwqZ47",
   },
   {
