@@ -90,7 +90,7 @@ export const glassFilmGalleryCategories = [
     id: "decorative",
     name: "Window Tinting",
     media: [
-      { type: "image", src: "/services/images/windowtintinglivingroomimg.png", alt: "Decorative Window Tinting", caption: "Elegant Window Tint" },
+      { type: "image" as const, src: "/services/images/windowtintinglivingroomimg.png", alt: "Decorative Window Tinting", caption: "Elegant Window Tint" },
     ],
   },
   {
@@ -114,7 +114,7 @@ export const glassFilmGalleryCategories = [
     id: "mirror",
     name: "Glass Mirror Film",
     media: [
-      { type: "image", src: "/services/images/glass-mirror-film-img.png", alt: "Glass Mirror Film", caption: "Reflective Mirror Finish" },
+      { type: "image" as const, src: "/services/images/glass-mirror-film-img.png", alt: "Glass Mirror Film", caption: "Reflective Mirror Finish" },
     ],
   },
   {
