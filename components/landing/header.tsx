@@ -21,7 +21,6 @@ const navItems = [
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDark, setIsDark] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -33,27 +32,7 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    // Check for saved theme preference or system preference
-    const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    
-    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-      setIsDark(true);
-      document.documentElement.classList.add("dark");
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    setIsDark(!isDark);
-    if (isDark) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    }
-  };
+  // Removed dark mode logic as per user request to enforce light theme only
 
   // Smooth scroll function
   const scrollToSection = useCallback((targetId: string) => {
@@ -112,9 +91,9 @@ export function Header() {
             onClick={(e) => handleNavClick(e, "/#hero")}
             className="flex items-center cursor-pointer -ml-4 md:ml-0"
           >
-            <div className={`relative ${isDark ? "w-[260px] h-[95px] md:w-[380px] md:h-[130px]" : "w-[220px] h-[80px] md:w-[320px] md:h-[110px]"}`}>
+            <div className="relative w-[220px] h-[80px] md:w-[320px] md:h-[110px]">
               <Image
-                src={isDark ? "/glassfilmfinallogotransparent1.png" : "/glassfilmlogolighttheme.png"}
+                src="/glassfilmlogolighttheme.png"
                 alt="AAC Glass Films Logo"
                 fill
                 className="object-contain object-left"
@@ -139,20 +118,7 @@ export function Header() {
 
           {/* Right side actions */}
           <div className="flex items-center gap-3">
-            {/* Theme Toggle */}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-              className="rounded-full w-10 h-10 md:w-10 md:h-10"
-              aria-label="Toggle theme"
-            >
-              {isDark ? (
-                <Sun className="h-6 w-6" />
-              ) : (
-                <Moon className="h-6 w-6" />
-              )}
-            </Button>
+            {/* Theme Toggle Removed */}
 
             {/* Call Button - Desktop */}
             <Button
