@@ -1,6 +1,8 @@
 import { MetadataRoute } from "next";
 import { services } from "@/lib/service-data";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://aacglassfilms.com";
 
